@@ -23,7 +23,6 @@
         .hero-bg {
             background: linear-gradient(rgba(10,10,10,0.8), rgba(10,10,10,0.4)), url('source/682056844_17935667535236822_6508837621440741059_n.jpg') center/cover no-repeat;
         }
-        .skewed-text { transform: skew(-10deg); display: inline-block; }
         .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
     </style>
@@ -52,9 +51,15 @@
     <!-- Hero Section -->
     <section id="home" class="hero-bg h-screen flex items-center justify-center pt-20">
         <div class="text-center px-4 fade-in">
-            <h1 class="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-4">
-                <span class="text-white">Luxury For</span> <span class="text-audsleyGreen skewed-text">Your Wheels</span>
+            
+            <!-- Updated Headline Style -->
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight mb-4 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4">
+                <span class="text-white drop-shadow-lg">Luxury For Your</span>
+                <span class="bg-audsleyGreen text-audsleyBlack px-3 py-1 md:px-4 md:py-2 leading-none flex items-center gap-1 md:gap-2 shadow-[0_0_20px_rgba(0,214,95,0.4)]">
+                    WHEELS<span class="text-3xl md:text-5xl leading-none pb-1">✦</span>
+                </span>
             </h1>
+
             <p class="mt-4 text-xl md:text-2xl text-gray-300 font-light tracking-wide max-w-2xl mx-auto mb-8">
                 Premium mobile valeting and detailing across Suffolk. Paint correction, protection, and perfection.
             </p>
@@ -176,4 +181,4 @@
     </script>
 
 </body>
-</html> 
+</html>
