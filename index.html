@@ -1,513 +1,179 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Audsley Auto Detailing | Luxury For Your Wheels</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
                     colors: {
-                        brand: {
-                            green: '#00d65f',
-                            dark: '#0a0a0a',
-                            gray: '#141414',
-                            light: '#f8fafc'
-                        }
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        audsleyGreen: '#00d65f',
+                        audsleyBlack: '#0a0a0a',
+                        audsleyDarkGray: '#171717'
                     }
                 }
             }
         }
     </script>
     <style>
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: #0a0a0a; 
-            color: #f8fafc; 
-            overflow-x: hidden;
+        body { background-color: #0a0a0a; color: white; scroll-behavior: smooth; }
+        .hero-bg {
+            background: linear-gradient(rgba(10,10,10,0.8), rgba(10,10,10,0.4)), url('source/682056844_17935667535236822_6508837621440741059_n.jpg') center/cover no-repeat;
         }
-        
-        .card-zoom:hover img { 
-            transform: scale(1.05); 
-        }
-        
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0a0a0a; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #141414; 
-            border: 1px solid #00d65f;
-            border-radius: 5px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #00d65f; 
-        }
-
-        /* Scroll Reveal Animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Marquee Animation */
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .animate-marquee {
-            display: flex;
-            width: max-content;
-            animation: marquee 40s linear infinite;
-        }
-        .animate-marquee:hover {
-            animation-play-state: paused;
-        }
-
-        /* Range Slider Styling for Before/After */
-        input[type=range]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            height: 40px;
-            width: 40px;
-            cursor: ew-resize;
-        }
-        input[type=range]::-moz-range-thumb {
-            height: 40px;
-            width: 40px;
-            cursor: ew-resize;
-            background: transparent;
-            border: none;
-        }
+        .skewed-text { transform: skew(-10deg); display: inline-block; }
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
-<body class="antialiased selection:bg-brand-green selection:text-black">
+<body class="font-sans antialiased">
 
-    <nav class="fixed w-full z-50 bg-brand-dark/90 backdrop-blur-md border-b border-brand-green/20 transition-all duration-300">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-audsleyBlack/90 backdrop-blur-md border-b border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-24">
-                <div class="flex items-center">
-                    <a href="#" class="flex-shrink-0 flex items-center gap-4 group">
-                        <img src="img_2_1789290912627.jpg" alt="Audsley Logo" class="h-14 w-14 rounded-full object-cover border-2 border-brand-green shadow-[0_0_15px_rgba(0,214,95,0.3)] group-hover:shadow-[0_0_25px_rgba(0,214,95,0.6)] transition-all duration-300">
-                        <span class="font-black text-2xl tracking-widest uppercase text-white">Audsley <span class="text-brand-green block text-[0.6rem] tracking-[0.25em] mt-0.5 font-bold">Auto Detailing</span></span>
-                    </a>
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <img src="source/audlseylogo.jpg" alt="Audsley Auto Detailing Logo" class="h-12 w-auto object-contain">
                 </div>
-                
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#about" class="text-gray-300 hover:text-brand-green transition-colors text-sm font-bold uppercase tracking-widest">About</a>
-                    <a href="#services" class="text-gray-300 hover:text-brand-green transition-colors text-sm font-bold uppercase tracking-widest">Services</a>
-                    <a href="#results" class="text-gray-300 hover:text-brand-green transition-colors text-sm font-bold uppercase tracking-widest">Results</a>
-                    <a href="#contact" class="bg-brand-green text-black px-7 py-3 rounded-sm font-black uppercase text-sm tracking-widest hover:bg-white hover:text-black transition-all shadow-[0_0_15px_rgba(0,214,95,0.4)] hover:shadow-[0_0_25px_rgba(255,255,255,0.5)]">Book Now</a>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="hover:text-audsleyGreen px-3 py-2 rounded-md text-sm font-bold uppercase tracking-widest transition-colors">Home</a>
+                        <a href="#services" class="hover:text-audsleyGreen px-3 py-2 rounded-md text-sm font-bold uppercase tracking-widest transition-colors">Services</a>
+                        <a href="#gallery" class="hover:text-audsleyGreen px-3 py-2 rounded-md text-sm font-bold uppercase tracking-widest transition-colors">Gallery</a>
+                        <a href="#contact" class="bg-audsleyGreen text-audsleyBlack px-6 py-2 rounded-sm text-sm font-black uppercase tracking-widest hover:bg-white transition-all shadow-[0_0_15px_rgba(0,214,95,0.5)]">Book Now</a>
+                    </div>
                 </div>
-
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-brand-green focus:outline-none transition-colors">
-                        <i class="fa-solid fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div id="mobile-menu" class="hidden md:hidden bg-brand-gray border-b border-brand-green/20 absolute w-full">
-            <div class="px-4 pt-2 pb-6 space-y-2 sm:px-3 shadow-2xl">
-                <a href="#about" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-brand-green hover:bg-black rounded-md uppercase tracking-wide">About</a>
-                <a href="#services" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-brand-green hover:bg-black rounded-md uppercase tracking-wide">Services</a>
-                <a href="#results" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-brand-green hover:bg-black rounded-md uppercase tracking-wide">Results</a>
-                <a href="#contact" class="block px-3 py-3 mt-4 text-center text-sm font-black text-black bg-brand-green rounded-sm uppercase tracking-widest shadow-[0_0_15px_rgba(0,214,95,0.3)]">Book Now</a>
             </div>
         </div>
     </nav>
 
-    <section class="min-h-screen flex items-center pt-24 relative overflow-hidden bg-black">
-        <!-- Video Background -->
-        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0 opacity-40 mix-blend-screen" poster="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=1920&q=80">
-            <!-- Using a high-quality stock video of water/washing -->
-            <source src="https://cdn.coverr.co/videos/coverr-washing-a-black-car-2900/1080p.mp4" type="video/mp4">
-        </video>
-        
-        <!-- Gradient Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent z-0"></div>
-        <div class="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-brand-green/10 rounded-full blur-[120px] pointer-events-none z-0 animate-pulse-slow"></div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full reveal">
-            <div class="max-w-3xl mx-auto md:mx-0">
-                <div class="inline-flex items-center gap-3 py-1.5 px-4 rounded-full bg-black/60 backdrop-blur-md text-brand-green text-xs font-black tracking-[0.2em] uppercase mb-6 border border-brand-green/30 shadow-[0_0_15px_rgba(0,214,95,0.15)]">
-                    <span class="w-2 h-2 rounded-full bg-brand-green animate-pulse"></span>
-                    Suffolk's Premier Mobile Detailing
-                </div>
-                
-                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[1.1] mb-6 tracking-tight uppercase">
-                    Luxury For <br/>
-                    <span class="bg-brand-green text-black px-4 pb-1 mt-2 inline-block -skew-x-6 shadow-[0_0_30px_rgba(0,214,95,0.4)]">Your Wheels<span class="text-white ml-1">✦</span></span>
-                </h1>
-                
-                <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto md:mx-0 leading-relaxed font-light">
-                    Professional mobile valeting, intricate detailing, and advanced ceramic paint protection across the Shotley Peninsula and wider Suffolk area.
-                </p>
-                
-                <div class="flex flex-col sm:flex-row gap-5 md:justify-start justify-center">
-                    <a href="#contact" class="bg-brand-green text-black px-8 py-4 rounded-sm font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all shadow-[0_0_20px_rgba(0,214,95,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] text-center text-sm">
-                        Get a Free Quote
-                    </a>
-                    <a href="#services" class="bg-black/50 border border-gray-600 text-white px-8 py-4 rounded-sm font-bold uppercase tracking-widest hover:border-brand-green hover:text-brand-green transition-all text-center backdrop-blur-sm text-sm hover:shadow-[0_0_15px_rgba(0,214,95,0.2)]">
-                        Explore Services
-                    </a>
-                </div>
-            </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg h-screen flex items-center justify-center pt-20">
+        <div class="text-center px-4 fade-in">
+            <h1 class="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-4">
+                <span class="text-white">Luxury For</span> <span class="text-audsleyGreen skewed-text">Your Wheels</span>
+            </h1>
+            <p class="mt-4 text-xl md:text-2xl text-gray-300 font-light tracking-wide max-w-2xl mx-auto mb-8">
+                Premium mobile valeting and detailing across Suffolk. Paint correction, protection, and perfection.
+            </p>
+            <a href="#contact" class="inline-block bg-audsleyGreen text-audsleyBlack px-8 py-4 rounded-sm text-lg font-black uppercase tracking-widest hover:bg-white hover:scale-105 transition-all shadow-[0_0_20px_rgba(0,214,95,0.6)]">
+                Get a Free Quote
+            </a>
         </div>
     </section>
 
-    <section id="about" class="py-24 bg-brand-dark relative border-t border-gray-900 overflow-hidden">
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-audsleyDarkGray">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="reveal bg-brand-gray p-10 rounded-xl border border-gray-800/50 text-center hover:-translate-y-2 transition-transform duration-300 hover:border-brand-green/40 group relative overflow-hidden" style="transition-delay: 100ms;">
-                    <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-6 border border-gray-800 group-hover:border-brand-green transition-colors shadow-lg group-hover:shadow-[0_0_20px_rgba(0,214,95,0.4)]">
-                        <i class="fa-solid fa-van-shuttle text-brand-green text-2xl group-hover:scale-110 transition-transform"></i>
-                    </div>
-                    <h3 class="text-xl font-black mb-3 uppercase tracking-wide">Fully Mobile Setup</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed font-light">We carry our own water and power supply. We can detail your vehicle at your home, workplace, or anywhere in Suffolk.</p>
-                </div>
-                
-                <div class="reveal bg-brand-gray p-10 rounded-xl border border-gray-800/50 text-center hover:-translate-y-2 transition-transform duration-300 hover:border-brand-green/40 group relative overflow-hidden" style="transition-delay: 200ms;">
-                    <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-6 border border-gray-800 group-hover:border-brand-green transition-colors shadow-lg group-hover:shadow-[0_0_20px_rgba(0,214,95,0.4)]">
-                        <i class="fa-solid fa-gem text-brand-green text-2xl group-hover:scale-110 transition-transform"></i>
-                    </div>
-                    <h3 class="text-xl font-black mb-3 uppercase tracking-wide">Premium Products</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed font-light">We only use pH-neutral, safe wash chemicals and industry-leading compounds, polishes, and ceramic coatings.</p>
-                </div>
-                
-                <div class="reveal bg-brand-gray p-10 rounded-xl border border-gray-800/50 text-center hover:-translate-y-2 transition-transform duration-300 hover:border-brand-green/40 group relative overflow-hidden" style="transition-delay: 300ms;">
-                    <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-6 border border-gray-800 group-hover:border-brand-green transition-colors shadow-lg group-hover:shadow-[0_0_20px_rgba(0,214,95,0.4)]">
-                        <i class="fa-solid fa-award text-brand-green text-2xl group-hover:scale-110 transition-transform"></i>
-                    </div>
-                    <h3 class="text-xl font-black mb-3 uppercase tracking-wide">Expert Techniques</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed font-light">Specializing in multi-stage paint correction to safely remove swirl marks, scratches, and clear coat oxidation.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="results" class="py-24 bg-[#050505] border-t border-gray-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-4xl md:text-5xl font-black text-white mb-6 uppercase tracking-tight">The Difference is Clear</h2>
-                <div class="w-24 h-1.5 bg-brand-green mx-auto shadow-[0_0_15px_rgba(0,214,95,0.6)]"></div>
-                <p class="mt-8 text-gray-400 max-w-2xl mx-auto font-light text-lg">Drag the slider below to see the dramatic results of our professional paint correction services.</p>
-            </div>
-            
-            <div class="reveal">
-                <!-- Slider Container -->
-                <div class="relative w-full max-w-5xl mx-auto h-[350px] md:h-[600px] overflow-hidden rounded-xl border border-gray-800 shadow-[0_0_40px_rgba(0,214,95,0.1)] group">
-                    
-                    <!-- After Image (Bottom) - Corrected Paint -->
-                    <div class="absolute inset-0 bg-black">
-                        <img src="https://images.unsplash.com/photo-1605557202138-097825c3feaa?auto=format&fit=crop&w=1600&q=80" alt="Corrected Paint After" class="w-full h-full object-cover">
-                        <div class="absolute bottom-6 right-6 bg-brand-green text-black px-4 py-2 font-black uppercase tracking-widest text-xs rounded-sm shadow-[0_0_15px_rgba(0,214,95,0.5)] z-10 pointer-events-none">After</div>
-                    </div>
-                    
-                    <!-- Before Image (Top, Clipped) - Swirled Paint (using a stock proxy for dull paint) -->
-                    <div id="slider-img" class="absolute inset-0 bg-black z-10" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);">
-                        <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1600&q=80" alt="Swirled Paint Before" class="w-full h-full object-cover grayscale-[30%] opacity-80">
-                        <div class="absolute bottom-6 left-6 bg-black text-white border border-gray-600 px-4 py-2 font-black uppercase tracking-widest text-xs rounded-sm pointer-events-none">Before</div>
-                    </div>
-
-                    <!-- Range Input -->
-                    <input type="range" min="0" max="100" value="50" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30" id="ba-slider">
-                    
-                    <!-- Custom Visual Handle -->
-                    <div id="slider-line" class="absolute top-0 bottom-0 w-[2px] bg-brand-green left-1/2 -translate-x-1/2 pointer-events-none z-20 shadow-[0_0_15px_rgba(0,214,95,0.8)]">
-                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-black border-2 border-brand-green rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,214,95,0.6)]">
-                            <i class="fa-solid fa-arrows-left-right text-brand-green text-sm"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="py-24 bg-brand-dark border-t border-gray-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-20 reveal">
-                <h2 class="text-4xl md:text-5xl font-black text-white mb-6 uppercase tracking-tight">Our Services</h2>
-                <div class="w-24 h-1.5 bg-brand-green mx-auto shadow-[0_0_15px_rgba(0,214,95,0.6)]"></div>
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-5xl font-black uppercase tracking-widest text-white">Our <span class="text-audsleyGreen">Services</span></h2>
+                <div class="w-24 h-1 bg-audsleyGreen mx-auto mt-4"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Service 1 -->
-                <div class="reveal bg-brand-gray rounded-xl overflow-hidden border border-gray-800/50 card-zoom group hover:border-brand-green/40 transition-colors shadow-lg flex flex-col" style="transition-delay: 100ms;">
-                    <div class="h-64 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1552930294-6b595f4c2974?auto=format&fit=crop&w=800&q=80" alt="Car Valeting" class="w-full h-full object-cover transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-gray via-brand-gray/50 to-transparent opacity-95"></div>
-                        <h3 class="absolute bottom-6 left-8 text-2xl font-black text-white uppercase tracking-wide">Maintenance Valet</h3>
+                <div class="bg-audsleyBlack rounded-sm overflow-hidden border border-gray-800 hover:border-audsleyGreen transition-colors group fade-in">
+                    <div class="h-64 overflow-hidden">
+                        <img src="source/543798910_17907115287236822_789087944156654349_n.jpg" alt="Valeting" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
-                    <div class="p-8 flex-grow flex flex-col justify-between">
-                        <div>
-                            <p class="text-gray-400 text-sm mb-6 font-light leading-relaxed">A comprehensive deep clean of your interior and exterior. Using safe wash methods, snow foam, wheel deep cleaning, and interior sanitization.</p>
-                            <ul class="text-sm text-gray-300 space-y-3 mb-8 font-light">
-                                <li class="flex items-center"><i class="fa-solid fa-check text-brand-green mr-3"></i> Citrus Pre-wash & Snow Foam</li>
-                                <li class="flex items-center"><i class="fa-solid fa-check text-brand-green mr-3"></i> Two-Bucket Safe Wash</li>
-                                <li class="flex items-center"><i class="fa-solid fa-check text-brand-green mr-3"></i> Interior Vacuum & Wipe Down</li>
-                            </ul>
-                        </div>
-                        <a href="#contact" class="block w-full text-center py-3.5 border border-gray-600 text-white hover:border-brand-green hover:text-brand-green transition-all rounded-sm font-bold uppercase tracking-widest text-xs hover:shadow-[0_0_15px_rgba(0,214,95,0.2)]">Inquire</a>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold uppercase tracking-wider mb-3 text-white">Mobile Valeting</h3>
+                        <p class="text-gray-400">Comprehensive interior and exterior cleaning using safe wash methods to ensure your vehicle looks brand new.</p>
                     </div>
                 </div>
 
-                <!-- Service 2 (Highlighted) -->
-                <div class="reveal bg-brand-gray rounded-xl overflow-hidden border border-brand-green/60 card-zoom group relative shadow-[0_0_30px_rgba(0,214,95,0.15)] hover:shadow-[0_0_40px_rgba(0,214,95,0.3)] transition-all flex flex-col transform md:-translate-y-4" style="transition-delay: 200ms;">
-                    <div class="absolute top-5 right-5 z-10 bg-brand-green text-black text-[10px] font-black px-3 py-1.5 rounded-sm uppercase tracking-widest shadow-[0_0_15px_rgba(0,214,95,0.5)]">Most Popular</div>
-                    <div class="h-64 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1507136566006-ceac791a81e3?auto=format&fit=crop&w=800&q=80" alt="Paint Correction" class="w-full h-full object-cover transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-gray via-brand-gray/50 to-transparent opacity-95"></div>
-                        <h3 class="absolute bottom-6 left-8 text-2xl font-black text-white uppercase tracking-wide">Paint Correction</h3>
+                <!-- Service 2 -->
+                <div class="bg-audsleyBlack rounded-sm overflow-hidden border border-gray-800 hover:border-audsleyGreen transition-colors group fade-in">
+                    <div class="h-64 overflow-hidden">
+                        <img src="source/625396124_17923140687236822_8462207929766964904_n.jpg" alt="Paint Correction" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
-                    <div class="p-8 flex-grow flex flex-col justify-between">
-                        <div>
-                            <p class="text-gray-400 text-sm mb-6 font-light leading-relaxed">Machine polishing designed to permanently remove clear coat imperfections like swirl marks, holograms, and light scratches, restoring a deep, mirror-like gloss.</p>
-                            <ul class="text-sm text-gray-300 space-y-3 mb-8 font-light">
-                                <li class="flex items-center"><i class="fa-solid fa-check text-brand-green mr-3"></i> Chemical Decontamination</li>
-                                <li class="flex items-center"><i class="fa-solid fa-check text-brand-green mr-3"></i> Multi-Stage Machine Polish</li>
-                                <li class="flex items-center"><i class="fa-solid fa-check text-brand-green mr-3"></i> Extreme Gloss Enhancement</li>
-                            </ul>
-                        </div>
-                        <a href="#contact" class="block w-full text-center py-3.5 bg-brand-green text-black hover:bg-white transition-all rounded-sm font-black uppercase tracking-widest text-xs shadow-[0_0_15px_rgba(0,214,95,0.3)] hover:shadow-[0_0_20px_rgba(255,255,255,0.5)]">Inquire</a>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold uppercase tracking-wider mb-3 text-white">Paint Correction</h3>
+                        <p class="text-gray-400">Advanced machine polishing to remove swirl marks, scratches, and oxidation, restoring a mirror-like gloss.</p>
                     </div>
                 </div>
 
                 <!-- Service 3 -->
-                <div class="reveal bg-brand-gray rounded-xl overflow-hidden border border-gray-800/50 card-zoom group hover:border-brand-green/40 transition-colors shadow-lg flex flex-col" style="transition-delay: 300ms;">
-                    <div class="h-64 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1610414902888-062e20b336a5?auto=format&fit=crop&w=800&q=80" alt="Ceramic Coating" class="w-full h-full object-cover transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-gray via-brand-gray/50 to-transparent opacity-95"></div>
-                        <h3 class="absolute bottom-6 left-8 text-2xl font-black text-white uppercase tracking-wide">Ceramic Coatings</h3>
+                <div class="bg-audsleyBlack rounded-sm overflow-hidden border border-gray-800 hover:border-audsleyGreen transition-colors group fade-in">
+                    <div class="h-64 overflow-hidden">
+                        <img src="source/626272047_17927465637236822_7562062616031269395_n.jpg" alt="Paint Protection" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
-                    <div class="p-8 flex-grow flex flex-col justify-between">
-                        <div>
-                            <p class="text-gray-400 text-sm mb-6 font-light leading-relaxed">Lock in your perfect paintwork with long-lasting ceramic protection. Provides extreme hydrophobics, UV protection, and makes future washing effortless.</p>
-                            <ul class="text-sm text-gray-300 space-y-3 mb-8 font-light">
-                                <li class="flex items-center"><i class="fa-solid fa-check text-brand-green mr-3"></i> 1-5 Year Protection Options</li>
-                                <li class="flex items-center"><i class="fa-solid fa-check text-brand-green mr-3"></i> Extreme Water Beading</li>
-                                <li class="flex items-center"><i class="fa-solid fa-check text-brand-green mr-3"></i> Wheel & Glass Coatings</li>
-                            </ul>
-                        </div>
-                        <a href="#contact" class="block w-full text-center py-3.5 border border-gray-600 text-white hover:border-brand-green hover:text-brand-green transition-all rounded-sm font-bold uppercase tracking-widest text-xs hover:shadow-[0_0_15px_rgba(0,214,95,0.2)]">Inquire</a>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold uppercase tracking-wider mb-3 text-white">Paint Protection</h3>
+                        <p class="text-gray-400">Lock in the finish with high-quality waxes, durable sealants, and premium ceramic coatings for long-lasting protection.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-16 bg-[#050505] border-t border-gray-900 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 text-center reveal">
-            <p class="text-brand-green text-sm font-black uppercase tracking-widest">Trusted Across Suffolk</p>
-            <h2 class="text-3xl font-black text-white uppercase tracking-tight mt-2">What Our Clients Say</h2>
-        </div>
-        
-        <div class="relative w-full overflow-hidden reveal" style="transition-delay: 200ms;">
-            <!-- Fading Edges -->
-            <div class="absolute top-0 left-0 w-24 h-full bg-gradient-to-r from-[#050505] to-transparent z-10"></div>
-            <div class="absolute top-0 right-0 w-24 h-full bg-gradient-to-l from-[#050505] to-transparent z-10"></div>
-            
-            <div class="animate-marquee gap-8 py-4">
-                <!-- Group 1 -->
-                <div class="flex gap-8">
-                    <div class="bg-brand-gray border border-gray-800 p-6 rounded-xl w-[350px] shrink-0">
-                        <div class="flex text-brand-green mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                        <p class="text-gray-300 font-light italic mb-4">"Absolutely incredible service. My BMW looks better than the day it rolled out of the showroom. The ceramic coating is mind-blowing."</p>
-                        <p class="text-white font-bold uppercase tracking-wider text-xs">- James T., Ipswich</p>
-                    </div>
-                    <div class="bg-brand-gray border border-gray-800 p-6 rounded-xl w-[350px] shrink-0">
-                        <div class="flex text-brand-green mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                        <p class="text-gray-300 font-light italic mb-4">"So convenient having them come to my workplace. The attention to detail on the interior deep clean was second to none. Highly recommend!"</p>
-                        <p class="text-white font-bold uppercase tracking-wider text-xs">- Sarah M., Shotley</p>
-                    </div>
-                    <div class="bg-brand-gray border border-gray-800 p-6 rounded-xl w-[350px] shrink-0">
-                        <div class="flex text-brand-green mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                        <p class="text-gray-300 font-light italic mb-4">"Got the paint correction package on my black Porsche. All the swirl marks are gone and it looks like a mirror. Proper professionals."</p>
-                        <p class="text-white font-bold uppercase tracking-wider text-xs">- David L., Woodbridge</p>
-                    </div>
-                </div>
-                <!-- Group 2 (Duplicate for infinite loop) -->
-                <div class="flex gap-8">
-                    <div class="bg-brand-gray border border-gray-800 p-6 rounded-xl w-[350px] shrink-0">
-                        <div class="flex text-brand-green mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                        <p class="text-gray-300 font-light italic mb-4">"Absolutely incredible service. My BMW looks better than the day it rolled out of the showroom. The ceramic coating is mind-blowing."</p>
-                        <p class="text-white font-bold uppercase tracking-wider text-xs">- James T., Ipswich</p>
-                    </div>
-                    <div class="bg-brand-gray border border-gray-800 p-6 rounded-xl w-[350px] shrink-0">
-                        <div class="flex text-brand-green mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                        <p class="text-gray-300 font-light italic mb-4">"So convenient having them come to my workplace. The attention to detail on the interior deep clean was second to none. Highly recommend!"</p>
-                        <p class="text-white font-bold uppercase tracking-wider text-xs">- Sarah M., Shotley</p>
-                    </div>
-                    <div class="bg-brand-gray border border-gray-800 p-6 rounded-xl w-[350px] shrink-0">
-                        <div class="flex text-brand-green mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                        <p class="text-gray-300 font-light italic mb-4">"Got the paint correction package on my black Porsche. All the swirl marks are gone and it looks like a mirror. Proper professionals."</p>
-                        <p class="text-white font-bold uppercase tracking-wider text-xs">- David L., Woodbridge</p>
-                    </div>
-                </div>
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-24 bg-audsleyBlack">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-5xl font-black uppercase tracking-widest text-white">Recent <span class="text-audsleyGreen">Work</span></h2>
+                <div class="w-24 h-1 bg-audsleyGreen mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <img src="source/684832984_17935667529236822_339786056100168975_n.jpg" alt="Gallery Work" class="w-full h-64 object-cover rounded-sm fade-in hover:opacity-75 transition-opacity cursor-pointer">
+                <img src="source/544854780_17907115248236822_3375562266014378086_n.jpg" alt="Gallery Work" class="w-full h-64 object-cover rounded-sm fade-in hover:opacity-75 transition-opacity cursor-pointer">
+                <img src="source/625874098_17923140678236822_8314185850937798921_n.jpg" alt="Gallery Work" class="w-full h-64 object-cover rounded-sm fade-in hover:opacity-75 transition-opacity cursor-pointer">
+                <img src="source/683771243_17935667547236822_4010655022803298097_n.jpg" alt="Gallery Work" class="w-full h-64 object-cover rounded-sm fade-in hover:opacity-75 transition-opacity cursor-pointer">
+                <img src="source/649218872_17927465718236822_7826895840443526779_n.jpg" alt="Gallery Work" class="w-full h-64 object-cover rounded-sm fade-in hover:opacity-75 transition-opacity cursor-pointer">
+                <img src="source/626297669_17923140633236822_2208039854349286886_n.jpg" alt="Gallery Work" class="w-full h-64 object-cover rounded-sm fade-in hover:opacity-75 transition-opacity cursor-pointer">
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-24 bg-brand-dark relative border-t border-gray-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
-                
-                <div class="reveal">
-                    <h2 class="text-4xl md:text-5xl font-black text-white mb-6 uppercase tracking-tight">Book Your Detail</h2>
-                    <div class="w-16 h-1.5 bg-brand-green mb-10 shadow-[0_0_15px_rgba(0,214,95,0.6)]"></div>
-                    <p class="text-gray-400 mb-10 leading-relaxed font-light text-lg">Ready to transform your vehicle? Fill out the form to request a quote or book an appointment. We will get back to you to confirm dates and pricing.</p>
-                    
-                    <div class="space-y-8">
-                        <div class="flex items-start group">
-                            <div class="w-14 h-14 bg-brand-gray rounded-full flex items-center justify-center mr-5 border border-gray-800 group-hover:border-brand-green transition-colors shrink-0 shadow-lg group-hover:shadow-[0_0_15px_rgba(0,214,95,0.4)]">
-                                <i class="fa-solid fa-phone text-brand-green"></i>
-                            </div>
-                            <div class="pt-2">
-                                <h4 class="text-white font-bold mb-1 uppercase tracking-widest text-xs">Call Us</h4>
-                                <p class="text-gray-400 font-light">07000 123 456</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start group">
-                            <div class="w-14 h-14 bg-brand-gray rounded-full flex items-center justify-center mr-5 border border-gray-800 group-hover:border-brand-green transition-colors shrink-0 shadow-lg group-hover:shadow-[0_0_15px_rgba(0,214,95,0.4)]">
-                                <i class="fa-solid fa-envelope text-brand-green"></i>
-                            </div>
-                            <div class="pt-2">
-                                <h4 class="text-white font-bold mb-1 uppercase tracking-widest text-xs">Email Us</h4>
-                                <p class="text-gray-400 font-light">info@audsleydetailing.co.uk</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="reveal bg-brand-gray p-10 rounded-xl border border-gray-800/50 shadow-2xl relative overflow-hidden" style="transition-delay: 200ms;">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-green to-transparent opacity-70"></div>
-                    
-                    <div id="form-notification" class="hidden mb-6 bg-brand-green/20 border border-brand-green text-brand-green px-4 py-3 rounded relative" role="alert">
-                        <span class="block sm:inline font-bold text-sm">Thanks for reaching out! We'll be in touch soon.</span>
-                    </div>
-
-                    <form id="booking-form" onsubmit="event.preventDefault(); document.getElementById('form-notification').classList.remove('hidden'); this.reset(); setTimeout(() => { document.getElementById('form-notification').classList.add('hidden'); }, 5000);">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
-                            <div>
-                                <label class="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest">Name</label>
-                                <input type="text" required class="w-full bg-black border border-gray-800 rounded-sm px-4 py-3.5 text-white focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-colors font-light">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest">Phone</label>
-                                <input type="tel" required class="w-full bg-black border border-gray-800 rounded-sm px-4 py-3.5 text-white focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-colors font-light">
-                            </div>
-                        </div>
-                        <div class="mb-5">
-                            <label class="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest">Vehicle Make & Model</label>
-                            <input type="text" required class="w-full bg-black border border-gray-800 rounded-sm px-4 py-3.5 text-white focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-colors font-light">
-                        </div>
-                        <div class="mb-5">
-                            <label class="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest">Service Required</label>
-                            <select class="w-full bg-black border border-gray-800 rounded-sm px-4 py-3.5 text-white focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-colors appearance-none font-light">
-                                <option>Maintenance Valet</option>
-                                <option>Deep Clean / Interior</option>
-                                <option>Paint Correction</option>
-                                <option>Ceramic Coating</option>
-                                <option>Not Sure / Other</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="w-full bg-brand-green text-black py-4 rounded-sm font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all shadow-[0_0_15px_rgba(0,214,95,0.3)] hover:shadow-[0_0_20px_rgba(255,255,255,0.5)]">
-                            Submit Request
-                        </button>
-                    </form>
-                </div>
-            </div>
+    <!-- Testimonial Marquee -->
+    <div class="bg-audsleyGreen py-4 overflow-hidden border-y-4 border-audsleyDarkGray">
+        <div class="whitespace-nowrap flex space-x-12 animate-[marquee_20s_linear_infinite]">
+            <span class="text-audsleyBlack font-black uppercase tracking-widest text-lg">★★★★★ "Absolutely flawless finish on my car!"</span>
+            <span class="text-audsleyBlack font-black uppercase tracking-widest text-lg">★★★★★ "The best mobile valeting in Suffolk."</span>
+            <span class="text-audsleyBlack font-black uppercase tracking-widest text-lg">★★★★★ "Highly recommend the ceramic coating package."</span>
+            <span class="text-audsleyBlack font-black uppercase tracking-widest text-lg">★★★★★ "Professional, on-time, and meticulous attention to detail."</span>
         </div>
-    </section>
+    </div>
+    <style>
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+    </style>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="#" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-[0_0_20px_rgba(37,211,102,0.5)] hover:scale-110 hover:shadow-[0_0_30px_rgba(37,211,102,0.8)] transition-all duration-300">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-    <footer class="bg-black py-12 border-t border-gray-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
-            <div class="flex items-center gap-3 mb-6 md:mb-0">
-                <img src="img_2_1789290912627.jpg" alt="Audsley Logo" class="h-10 w-10 rounded-full border border-gray-800">
-                <span class="font-black text-xl tracking-widest uppercase text-white">Audsley</span>
-            </div>
-            <div class="text-gray-600 text-xs font-bold uppercase tracking-widest">
-                &copy; 2026 Audsley Auto Detailing.
-            </div>
-            <div class="flex space-x-6 mt-6 md:mt-0">
-                <a href="#" class="text-gray-600 hover:text-brand-green transition-colors"><i class="fa-brands fa-facebook text-xl"></i></a>
-                <a href="#" class="text-gray-600 hover:text-brand-green transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
-            </div>
+    <!-- Footer -->
+    <footer id="contact" class="bg-audsleyDarkGray pt-16 pb-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
+            <img src="source/audlseylogo.jpg" alt="Audsley Logo" class="h-16 mx-auto mb-6 object-contain opacity-80">
+            <h2 class="text-2xl font-black uppercase tracking-widest text-white mb-8">Ready to book?</h2>
+            <a href="mailto:info@audsleyautodetailing.co.uk" class="inline-block border-2 border-audsleyGreen text-audsleyGreen px-8 py-3 rounded-sm font-bold uppercase tracking-widest hover:bg-audsleyGreen hover:text-audsleyBlack transition-colors mb-12">
+                Contact Us
+            </a>
+            <p class="text-gray-500 text-sm tracking-wider">
+                &copy; 2026 Audsley Auto Detailing. All rights reserved.
+            </p>
         </div>
     </footer>
 
+    <!-- Scroll Animation Script -->
     <script>
-        // Mobile Menu Logic
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
+        document.addEventListener("DOMContentLoaded", function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
 
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
-
-        menu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
+            document.querySelectorAll('.fade-in').forEach((el) => {
+                observer.observe(el);
             });
-        });
-
-        // Scroll Reveal Animations using IntersectionObserver
-        const revealElements = document.querySelectorAll('.reveal');
-        
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    // Stop observing once revealed
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.15, // Trigger when 15% visible
-            rootMargin: "0px 0px -50px 0px"
-        });
-
-        revealElements.forEach(el => revealObserver.observe(el));
-
-        // Before & After Slider Logic
-        const slider = document.getElementById('ba-slider');
-        const sliderImg = document.getElementById('slider-img');
-        const sliderLine = document.getElementById('slider-line');
-
-        slider.addEventListener('input', (e) => {
-            const sliderValue = e.target.value;
-            // Adjust the clip-path of the top image
-            sliderImg.style.clipPath = `polygon(0 0, ${sliderValue}% 0, ${sliderValue}% 100%, 0 100%)`;
-            // Move the visual slider handle
-            sliderLine.style.left = `${sliderValue}%`;
         });
     </script>
+
 </body>
-</html> 
+</html>
