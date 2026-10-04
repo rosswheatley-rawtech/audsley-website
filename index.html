@@ -203,9 +203,9 @@
         const overlay = document.getElementById('game-overlay');
         const startBtn = document.getElementById('start-btn');
         
-        // Load Dan Sprite (Placeholder for now)
+        // Load Dan Sprite
         const danSprite = new Image();
-        danSprite.src = 'source/dan_16bit.png'; 
+        danSprite.src = 'source/dan-16-bit.jpeg'; 
 
         let gameLoop;
         let score = 0;
@@ -215,7 +215,7 @@
         const player = {
             x: 275,
             y: 320,
-            width: 50,
+            width: 60, // Widened slightly to accommodate the jpeg background
             height: 70,
             speed: 6,
             dx: 0
@@ -328,7 +328,7 @@
             score = 0;
             missed = 0;
             cars.length = 0;
-            player.x = 275;
+            player.x = 270;
             overlay.style.display = 'none';
             isPlaying = true;
             loop();
