@@ -39,673 +39,7 @@
             40%, 80% { transform: translateX(6px); }
         }
         .shake { animation: shake 0.3s ease-in-out; }
-        
-        /* Fast touch response */
-        .tool-btn {
-            touch-action: manipulation;
-            -webkit-tap-highlight-color: transparent;
-            user-select: none;
-        }
-        .tool-btn:active {
-            transform: scale(0.94);
-        }
-    </style>
-</head>
-<body class="font-sans antialiased selection:bg-audsleyGreen selection:text-black">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-audsleyBlack/90 backdrop-blur-md border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16 sm:h-20">
-                <div class="flex-shrink-0">
-                    <img src="source/audsleylogo2.png" alt="Audsley Auto Detailing Logo" class="h-10 sm:h-12 w-auto object-contain">
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#home" class="hover:text-audsleyGreen px-3 py-2 rounded-md text-sm font-bold uppercase tracking-widest transition-colors">Home</a>
-                        <a href="#services" class="hover:text-audsleyGreen px-3 py-2 rounded-md text-sm font-bold uppercase tracking-widest transition-colors">Services</a>
-                        <a href="#gallery" class="hover:text-audsleyGreen px-3 py-2 rounded-md text-sm font-bold uppercase tracking-widest transition-colors">Gallery</a>
-                        <a href="#arcade" class="text-audsleyGreen px-3 py-2 rounded-md text-sm font-bold uppercase tracking-widest border border-audsleyGreen/40 hover:bg-audsleyGreen hover:text-audsleyBlack transition-all">Pit-Stop Game</a>
-                        <a href="#contact" class="bg-audsleyGreen text-audsleyBlack px-6 py-2 rounded-sm text-sm font-black uppercase tracking-widest hover:bg-white transition-all shadow-[0_0_15px_rgba(0,214,95,0.5)]">Book Now</a>
-                    </div>
-                </div>
-                <div class="md:hidden">
-                    <a href="#arcade" class="text-xs bg-audsleyGreen text-audsleyBlack px-3 py-1.5 rounded font-black uppercase tracking-wider">Play Game</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero-bg min-h-screen flex items-center justify-center pt-20 pb-12">
-        <div class="text-center px-4 fade-in">
-            <h1 class="text-3xl sm:text-5xl md:text-7xl font-black uppercase tracking-tight mb-4 flex flex-col md:flex-row items-center justify-center gap-2 sm:gap-4">
-                <span class="text-white drop-shadow-lg">Luxury For Your</span>
-                <span class="bg-audsleyGreen text-audsleyBlack px-3 py-1 md:px-4 md:py-2 leading-none flex items-center gap-1.5 shadow-[0_0_20px_rgba(0,214,95,0.4)]">
-                    WHEELS<span class="text-2xl sm:text-4xl leading-none pb-0.5">✦</span>
-                </span>
-            </h1>
-            <p class="mt-3 text-base sm:text-xl md:text-2xl text-gray-300 font-light tracking-wide max-w-2xl mx-auto mb-8">
-                Premium mobile valeting and detailing across Suffolk. Paint correction, protection, and perfection.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 max-w-xs sm:max-w-none mx-auto">
-                <a href="#contact" class="inline-block bg-audsleyGreen text-audsleyBlack px-6 py-3.5 rounded-sm text-base font-black uppercase tracking-widest hover:bg-white transition-all shadow-[0_0_20px_rgba(0,214,95,0.6)]">
-                    Get a Free Quote
-                </a>
-                <a href="#arcade" class="inline-block border-2 border-audsleyGreen text-audsleyGreen px-6 py-3.5 rounded-sm text-base font-black uppercase tracking-widest hover:bg-audsleyGreen hover:text-audsleyBlack transition-all">
-                    Play Pit-Stop Valet
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-16 sm:py-24 bg-audsleyDarkGray">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 sm:mb-16 fade-in">
-                <h2 class="text-3xl md:text-5xl font-black uppercase tracking-widest text-white">Our <span class="text-audsleyGreen">Services</span></h2>
-                <div class="w-24 h-1 bg-audsleyGreen mx-auto mt-4"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-                <div class="bg-audsleyBlack rounded-sm overflow-hidden border border-gray-800 hover:border-audsleyGreen transition-colors group fade-in">
-                    <div class="h-56 sm:h-64 overflow-hidden">
-                        <img src="source/543798910_17907115287236822_789087944156654349_n.jpg" alt="Valeting" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="p-6 sm:p-8">
-                        <h3 class="text-xl sm:text-2xl font-bold uppercase tracking-wider mb-2 sm:mb-3 text-white">Mobile Valeting</h3>
-                        <p class="text-gray-400 text-sm sm:base">Comprehensive interior and exterior cleaning using safe wash methods to ensure your vehicle looks brand new.</p>
-                    </div>
-                </div>
-                <div class="bg-audsleyBlack rounded-sm overflow-hidden border border-gray-800 hover:border-audsleyGreen transition-colors group fade-in">
-                    <div class="h-56 sm:h-64 overflow-hidden">
-                        <img src="source/625396124_17923140687236822_8462207929766964904_n.jpg" alt="Paint Correction" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="p-6 sm:p-8">
-                        <h3 class="text-xl sm:text-2xl font-bold uppercase tracking-wider mb-2 sm:mb-3 text-white">Paint Correction</h3>
-                        <p class="text-gray-400 text-sm sm:base">Advanced machine polishing to remove swirl marks, scratches, and oxidation, restoring a mirror-like gloss.</p>
-                    </div>
-                </div>
-                <div class="bg-audsleyBlack rounded-sm overflow-hidden border border-gray-800 hover:border-audsleyGreen transition-colors group fade-in">
-                    <div class="h-56 sm:h-64 overflow-hidden">
-                        <img src="source/626272047_17927465637236822_7562062616031269395_n.jpg" alt="Paint Protection" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="p-6 sm:p-8">
-                        <h3 class="text-xl sm:text-2xl font-bold uppercase tracking-wider mb-2 sm:mb-3 text-white">Paint Protection</h3>
-                        <p class="text-gray-400 text-sm sm:base">Lock in the finish with high-quality waxes, durable sealants, and premium ceramic coatings for long-lasting protection.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="py-16 sm:py-24 bg-audsleyBlack">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 sm:mb-16 fade-in">
-                <h2 class="text-3xl md:text-5xl font-black uppercase tracking-widest text-white">Recent <span class="text-audsleyGreen">Work</span></h2>
-                <div class="w-24 h-1 bg-audsleyGreen mx-auto mt-4"></div>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
-                <img src="source/684832984_17935667529236822_339786056100168975_n.jpg" alt="Gallery Work" class="w-full h-44 sm:h-64 object-cover rounded-sm fade-in hover:opacity-75 transition-opacity">
-                <img src="source/544854780_17907115248236822_3375562266014378086_n.jpg" alt="Gallery Work" class="w-full h-44 sm:h-64 object-cover rounded-sm fade-in hover:opacity-75 transition-opacity">
-                <img src="source/625874098_17923140678236822_8314185850937798921_n.jpg" alt="Gallery Work" class="w-full h-44 sm:h-64 object-cover rounded-sm fade-in hover:opacity-75 transition-opacity">
-                <img src="source/683771243_17935667547236822_4010655022803298097_n.jpg" alt="Gallery Work" class="w-full h-44 sm:h-64 object-cover rounded-sm fade-in hover:opacity-75 transition-opacity">
-                <img src="source/649218872_17927465718236822_7826895840443526779_n.jpg" alt="Gallery Work" class="w-full h-44 sm:h-64 object-cover rounded-sm fade-in hover:opacity-75 transition-opacity">
-                <img src="source/626297669_17923140633236822_2208039854349286886_n.jpg" alt="Gallery Work" class="w-full h-44 sm:h-64 object-cover rounded-sm fade-in hover:opacity-75 transition-opacity">
-            </div>
-        </div>
-    </section>
-
-    <!-- MOBILE-OPTIMIZED PIT-STOP VALET -->
-    <section id="arcade" class="py-12 sm:py-20 bg-audsleyDarkGray border-t border-b border-gray-800">
-        <div class="max-w-4xl mx-auto px-2 sm:px-6 lg:px-8 text-center">
-            
-            <div class="inline-block bg-audsleyBlack border border-audsleyGreen/40 px-3 py-1 rounded-full text-audsleyGreen text-[11px] font-black tracking-widest uppercase mb-2">
-                Dan's Mobile Detailing Challenge
-            </div>
-            <h2 class="text-2xl sm:text-4xl md:text-5xl font-black uppercase tracking-widest text-white mb-2">
-                The Pit-Stop <span class="text-audsleyGreen">Valet</span>
-            </h2>
-            <p class="text-gray-400 max-w-lg mx-auto text-xs sm:text-sm mb-6 px-2">
-                Cars are queuing across Suffolk! Tap the tools in the exact order shown on each ticket before customer patience runs out.
-            </p>
-
-            <!-- Game Cabinet -->
-            <div id="game-cabinet" class="relative bg-audsleyBlack rounded-xl border border-gray-800 sm:border-2 sm:border-audsleyGreen/60 p-2.5 sm:p-5 shadow-2xl text-left">
-                
-                <!-- Compact HUD Header -->
-                <div class="flex items-center justify-between border-b border-gray-800 pb-2.5 mb-2.5 gap-2">
-                    <div class="flex items-center gap-2 sm:gap-3 min-w-0">
-                        <img src="source/dan-16-bit.jpeg" alt="Dan Audsley" class="w-9 h-9 sm:w-11 sm:h-11 rounded border border-audsleyGreen object-cover shrink-0">
-                        <div class="truncate">
-                            <div class="text-[10px] uppercase text-gray-400 font-bold tracking-wider">Dan's Radio</div>
-                            <div class="text-xs sm:text-sm font-black text-white truncate" id="dan-dialogue">"Where d'ya get ya car?"</div>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-3 sm:gap-6 shrink-0">
-                        <div class="text-right sm:text-center">
-                            <div class="text-[10px] text-gray-400 font-bold uppercase">Time</div>
-                            <div id="timer-display" class="pixel-text text-lg sm:text-2xl font-black text-audsleyGreen">60s</div>
-                        </div>
-                        <div class="text-right sm:text-center">
-                            <div class="text-[10px] text-gray-400 font-bold uppercase">Till</div>
-                            <div id="score-display" class="pixel-text text-lg sm:text-2xl font-black text-white">£0</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Live Service Ticket -->
-                <div id="ticket-container" class="bg-audsleyMidGray border border-gray-700/80 rounded-lg p-2.5 mb-2.5">
-                    <div class="flex items-center justify-between gap-2 mb-2">
-                        <div class="flex items-center gap-1.5 truncate">
-                            <span class="text-[11px] sm:text-xs font-black uppercase text-audsleyGreen tracking-wide truncate" id="package-title">Standard Clean</span>
-                            <span class="text-[10px] text-gray-400 hidden sm:inline" id="car-desc">(Sedan)</span>
-                        </div>
-                        <div class="flex items-center gap-2 shrink-0 w-28 sm:w-36">
-                            <span class="text-[9px] sm:text-[10px] text-gray-400 font-bold">PATIENCE</span>
-                            <div class="flex-1 h-2 bg-gray-800 rounded-full overflow-hidden">
-                                <div id="patience-bar" class="h-full bg-audsleyGreen transition-all duration-100" style="width: 100%;"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Steps Pills Row -->
-                    <div class="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar" id="steps-list">
-                        <!-- Populated dynamically -->
-                    </div>
-                </div>
-
-                <!-- Detailing Bay Canvas Container -->
-                <div class="relative bg-gradient-to-b from-[#141414] to-[#0c0c0c] rounded-lg border border-gray-800 overflow-hidden mb-3">
-                    <canvas id="valetCanvas" width="800" height="380" class="w-full h-auto block aspect-[2/1]"></canvas>
-                    
-                    <!-- Penalty Splash Notification -->
-                    <div id="penalty-splash" class="hidden absolute inset-0 bg-red-950/85 flex flex-col items-center justify-center p-3 text-center pointer-events-none z-20">
-                        <span class="text-3xl">⚠️</span>
-                        <h4 class="text-lg sm:text-2xl font-black text-red-400 uppercase tracking-widest mt-1">SWIRL DETECTED!</h4>
-                        <p class="text-xs text-red-200 mt-0.5">Wrong sequence! -£15 penalty.</p>
-                    </div>
-
-                    <!-- Start / Game Over Modal -->
-                    <div id="game-overlay" class="absolute inset-0 bg-audsleyBlack/95 flex flex-col items-center justify-center p-4 text-center z-30">
-                        <div class="max-w-xs sm:max-w-sm">
-                            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-audsleyGreen mx-auto mb-3 overflow-hidden shadow-[0_0_20px_rgba(0,214,95,0.4)]">
-                                <img src="source/dan-16-bit.jpeg" alt="Dan" class="w-full h-full object-cover">
-                            </div>
-                            <h3 id="overlay-title" class="text-2xl sm:text-3xl font-black text-white uppercase tracking-wider mb-1.5">
-                                Ready To Wash?
-                            </h3>
-                            <p id="overlay-desc" class="text-xs sm:text-sm text-gray-300 mb-5 leading-relaxed">
-                                Queue of dirty motors on the driveway! Tap the tools in order to complete bookings before customer patience runs out.
-                            </p>
-                            <button id="main-action-btn" type="button" class="w-full sm:w-auto bg-audsleyGreen text-audsleyBlack px-8 py-3.5 font-black text-sm uppercase tracking-widest rounded hover:bg-white active:scale-95 transition-all shadow-lg cursor-pointer">
-                                Open Bay (Start)
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Mobile-Optimized Big Thumb Tool Controls -->
-                <div>
-                    <div class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-gray-400 mb-1.5 flex justify-between">
-                        <span>Tap Tool to Clean Car:</span>
-                        <span class="text-audsleyGreen font-normal hidden sm:inline">Keys 1-5</span>
-                    </div>
-
-                    <!-- Grid: 5 Big Finger Targets -->
-                    <div class="grid grid-cols-5 gap-1.5 sm:gap-3" id="tool-rack">
-                        
-                        <button data-tool="foam" class="tool-btn bg-audsleyMidGray border border-gray-700 active:border-audsleyGreen hover:border-audsleyGreen py-3 px-1 sm:py-3.5 rounded-lg text-center transition-all cursor-pointer flex flex-col items-center justify-center">
-                            <div class="text-2xl sm:text-3xl mb-1">🧼</div>
-                            <div class="text-[10px] sm:text-xs font-black uppercase text-white truncate w-full text-center">Foam</div>
-                        </button>
-
-                        <button data-tool="wheels" class="tool-btn bg-audsleyMidGray border border-gray-700 active:border-audsleyGreen hover:border-audsleyGreen py-3 px-1 sm:py-3.5 rounded-lg text-center transition-all cursor-pointer flex flex-col items-center justify-center">
-                            <div class="text-2xl sm:text-3xl mb-1">🛞</div>
-                            <div class="text-[10px] sm:text-xs font-black uppercase text-white truncate w-full text-center">Wheels</div>
-                        </button>
-
-                        <button data-tool="wash" class="tool-btn bg-audsleyMidGray border border-gray-700 active:border-audsleyGreen hover:border-audsleyGreen py-3 px-1 sm:py-3.5 rounded-lg text-center transition-all cursor-pointer flex flex-col items-center justify-center">
-                            <div class="text-2xl sm:text-3xl mb-1">🧽</div>
-                            <div class="text-[10px] sm:text-xs font-black uppercase text-white truncate w-full text-center">Mitt</div>
-                        </button>
-
-                        <button data-tool="rinse" class="tool-btn bg-audsleyMidGray border border-gray-700 active:border-audsleyGreen hover:border-audsleyGreen py-3 px-1 sm:py-3.5 rounded-lg text-center transition-all cursor-pointer flex flex-col items-center justify-center">
-                            <div class="text-2xl sm:text-3xl mb-1">💦</div>
-                            <div class="text-[10px] sm:text-xs font-black uppercase text-white truncate w-full text-center">Rinse</div>
-                        </button>
-
-                        <button data-tool="polish" class="tool-btn bg-audsleyMidGray border border-gray-700 active:border-audsleyGreen hover:border-audsleyGreen py-3 px-1 sm:py-3.5 rounded-lg text-center transition-all cursor-pointer flex flex-col items-center justify-center">
-                            <div class="text-2xl sm:text-3xl mb-1">✨</div>
-                            <div class="text-[10px] sm:text-xs font-black uppercase text-white truncate w-full text-center">Buff</div>
-                        </button>
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonial Marquee -->
-    <div class="bg-audsleyGreen py-3 sm:py-4 overflow-hidden border-y-4 border-audsleyDarkGray">
-        <div class="whitespace-nowrap flex space-x-8 sm:space-x-12 animate-[marquee_20s_linear_infinite]">
-            <span class="text-audsleyBlack font-black uppercase tracking-widest text-sm sm:text-lg">★★★★★ "Where d'ya get ya car?"</span>
-            <span class="text-audsleyBlack font-black uppercase tracking-widest text-sm sm:text-lg">★★★★★ "Absolutely flawless finish on my car!"</span>
-            <span class="text-audsleyBlack font-black uppercase tracking-widest text-sm sm:text-lg">★★★★★ "The best mobile valeting in Suffolk."</span>
-            <span class="text-audsleyBlack font-black uppercase tracking-widest text-sm sm:text-lg">★★★★★ "Highly recommend the ceramic coating package."</span>
-            <span class="text-audsleyBlack font-black uppercase tracking-widest text-sm sm:text-lg">★★★★★ "Professional, on-time, and meticulous attention to detail."</span>
-        </div>
-    </div>
-    <style>
-        @keyframes marquee {
-            0% { transform: translateX(0%); }
-            100% { transform: translateX(-50%); }
-        }
-    </style>
-
-    <!-- Footer -->
-    <footer id="contact" class="bg-audsleyBlack pt-12 pb-8 border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
-            <img src="source/audsleylogo2.png" alt="Audsley Logo" class="h-12 sm:h-16 mx-auto mb-6 object-contain opacity-80">
-            <h2 class="text-xl sm:text-2xl font-black uppercase tracking-widest text-white mb-6">Ready to book?</h2>
-            <a href="mailto:info@audsleyautodetailing.co.uk" class="inline-block border-2 border-audsleyGreen text-audsleyGreen px-6 py-2.5 rounded-sm font-bold uppercase tracking-widest hover:bg-audsleyGreen hover:text-audsleyBlack transition-colors mb-10">
-                Contact Us
-            </a>
-            <p class="text-gray-500 text-xs tracking-wider">
-                &copy; 2026 Audsley Auto Detailing. All rights reserved.
-            </p>
-        </div>
-    </footer>
-
-    <!-- Scripts: Fade Observer & Pit-Stop Valet Game Logic -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.fade-in').forEach((el) => {
-                observer.observe(el);
-            });
-        });
-
-        // AUDIO ENGINE
-        let audioCtx = null;
-        function initAudio() {
-            try {
-                if (!audioCtx) {
-                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                }
-                if (audioCtx && audioCtx.state === 'suspended') {
-                    audioCtx.resume();
-                }
-            } catch (e) {}
-        }
-
-        function playSound(type) {
-            if (!audioCtx || audioCtx.state !== 'running') return;
-            try {
-                const now = audioCtx.currentTime;
-                if (type === 'spray') {
-                    const bufferSize = audioCtx.sampleRate * 0.22;
-                    const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
-                    const data = buffer.getChannelData(0);
-                    for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
-                    const noise = audioCtx.createBufferSource();
-                    noise.buffer = buffer;
-                    const filter = audioCtx.createBiquadFilter();
-                    filter.type = 'bandpass';
-                    filter.frequency.setValueAtTime(1400, now);
-                    const gain = audioCtx.createGain();
-                    gain.gain.setValueAtTime(0.2, now);
-                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.2);
-                    noise.connect(filter);
-                    filter.connect(gain);
-                    gain.connect(audioCtx.destination);
-                    noise.start();
-                } else if (type === 'brush') {
-                    const osc = audioCtx.createOscillator();
-                    const gain = audioCtx.createGain();
-                    osc.type = 'triangle';
-                    osc.frequency.setValueAtTime(160, now);
-                    osc.frequency.exponentialRampToValueAtTime(80, now + 0.18);
-                    gain.gain.setValueAtTime(0.25, now);
-                    gain.gain.linearRampToValueAtTime(0.01, now + 0.18);
-                    osc.connect(gain);
-                    gain.connect(audioCtx.destination);
-                    osc.start();
-                    osc.stop(now + 0.18);
-                } else if (type === 'polish') {
-                    const osc = audioCtx.createOscillator();
-                    const gain = audioCtx.createGain();
-                    osc.type = 'sawtooth';
-                    osc.frequency.setValueAtTime(340, now);
-                    osc.frequency.linearRampToValueAtTime(560, now + 0.22);
-                    gain.gain.setValueAtTime(0.12, now);
-                    gain.gain.linearRampToValueAtTime(0.01, now + 0.22);
-                    osc.connect(gain);
-                    gain.connect(audioCtx.destination);
-                    osc.start();
-                    osc.stop(now + 0.22);
-                } else if (type === 'success') {
-                    [523.25, 659.25, 783.99, 1046.50].forEach((freq, idx) => {
-                        const osc = audioCtx.createOscillator();
-                        const gain = audioCtx.createGain();
-                        osc.type = 'sine';
-                        osc.frequency.setValueAtTime(freq, now + idx * 0.05);
-                        gain.gain.setValueAtTime(0.15, now + idx * 0.05);
-                        gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.05 + 0.16);
-                        osc.connect(gain);
-                        gain.connect(audioCtx.destination);
-                        osc.start(now + idx * 0.05);
-                        osc.stop(now + idx * 0.05 + 0.16);
-                    });
-                } else if (type === 'error') {
-                    const osc = audioCtx.createOscillator();
-                    const gain = audioCtx.createGain();
-                    osc.type = 'sawtooth';
-                    osc.frequency.setValueAtTime(115, now);
-                    osc.frequency.linearRampToValueAtTime(85, now + 0.22);
-                    gain.gain.setValueAtTime(0.3, now);
-                    gain.gain.linearRampToValueAtTime(0.01, now + 0.22);
-                    osc.connect(gain);
-                    gain.connect(audioCtx.destination);
-                    osc.start();
-                    osc.stop(now + 0.22);
-                }
-            } catch(e) {}
-        }
-
-        // VALET ENGINE
-        const canvas = document.getElementById('valetCanvas');
-        const ctx = canvas.getContext('2d');
-
-        const overlay = document.getElementById('game-overlay');
-        const overlayTitle = document.getElementById('overlay-title');
-        const overlayDesc = document.getElementById('overlay-desc');
-        const mainActionBtn = document.getElementById('main-action-btn');
-        const timerDisplay = document.getElementById('timer-display');
-        const scoreDisplay = document.getElementById('score-display');
-        const packageTitle = document.getElementById('package-title');
-        const carDesc = document.getElementById('car-desc');
-        const stepsList = document.getElementById('steps-list');
-        const patienceBar = document.getElementById('patience-bar');
-        const penaltySplash = document.getElementById('penalty-splash');
-        const danDialogue = document.getElementById('dan-dialogue');
-        const toolBtns = document.querySelectorAll('.tool-btn');
-
-        const danSprite = new Image();
-        danSprite.src = 'source/dan-16-bit.jpeg';
-
-        const PACKAGES = [
-            { name: 'Express Clean', steps: ['foam', 'rinse', 'wash'], basePrice: 40, maxPatience: 15 },
-            { name: 'Wheel Master', steps: ['wheels', 'rinse', 'wash'], basePrice: 50, maxPatience: 17 },
-            { name: 'Safe Wash & Dry', steps: ['foam', 'rinse', 'wash', 'rinse'], basePrice: 65, maxPatience: 19 },
-            { name: 'Full Gloss Detail', steps: ['foam', 'wash', 'rinse', 'polish'], basePrice: 90, maxPatience: 21 }
-        ];
-
-        const TOOL_META = {
-            foam:   { label: 'Foam',   icon: '🧼' },
-            wheels: { label: 'Wheels', icon: '🛞' },
-            wash:   { label: 'Wash',   icon: '🧽' },
-            rinse:  { label: 'Rinse',  icon: '💦' },
-            polish: { label: 'Polish', icon: '✨' }
-        };
-
-        const CAR_MODELS = [
-            { type: 'Coupe', scaleX: 0.9, scaleY: 0.85, colors: ['#1e40af', '#b91c1c', '#15803d', '#334155'] },
-            { type: 'SUV', scaleX: 1.05, scaleY: 1.05, colors: ['#0f172a', '#78716c', '#047857', '#475569'] },
-            { type: 'Hot Hatch', scaleX: 0.8, scaleY: 0.9, colors: ['#ea580c', '#eab308', '#0284c7', '#dc2626'] }
-        ];
-
-        const DAN_QUOTES = [
-            "\"Where d'ya get ya car?\"",
-            "\"Safe wash method only, mate!\"",
-            "\"Watch those lower sills!\"",
-            "\"Rinse the grit off first!\"",
-            "\"Look at that mirror gloss!\"",
-            "\"Next car on the driveway!\""
-        ];
-
-        let gameRunning = false;
-        let timeLeft = 60;
-        let score = 0;
-        let completedCars = 0;
-        let timerInterval = null;
-        let currentCar = null;
-        let activeParticles = [];
-
-        function getRandomElement(arr) {
-            return arr[Math.floor(Math.random() * arr.length)];
-        }
-
-        function triggerHaptic(duration = 20) {
-            if (navigator && navigator.vibrate) {
-                try { navigator.vibrate(duration); } catch(e) {}
-            }
-        }
-
-        function spawnCar() {
-            const model = getRandomElement(CAR_MODELS);
-            const pkg = getRandomElement(PACKAGES);
-            const carColor = getRandomElement(model.colors);
-
-            currentCar = {
-                modelType: model.type,
-                color: carColor,
-                scaleX: model.scaleX,
-                scaleY: model.scaleY,
-                package: pkg,
-                currentStepIdx: 0,
-                patience: pkg.maxPatience,
-                maxPatience: pkg.maxPatience,
-                dirtLevel: 1.0,
-                foamLayer: 0.0,
-                wheelDirt: 1.0,
-                glossShine: 0.0,
-                xOffset: -400,
-                targetX: 420
-            };
-
-            packageTitle.textContent = pkg.name;
-            carDesc.textContent = `(${model.type})`;
-            danDialogue.textContent = getRandomElement(DAN_QUOTES);
-            renderStepPills();
-        }
-
-        function renderStepPills() {
-            stepsList.innerHTML = '';
-            if (!currentCar) return;
-
-            currentCar.package.steps.forEach((stepKey, idx) => {
-                const meta = TOOL_META[stepKey];
-                const pill = document.createElement('div');
-                pill.className = `flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-bold uppercase tracking-wide border whitespace-nowrap transition-all ${
-                    idx < currentCar.currentStepIdx
-                        ? 'bg-audsleyGreen/20 border-audsleyGreen text-audsleyGreen line-through opacity-40'
-                        : idx === currentCar.currentStepIdx
-                        ? 'bg-white text-audsleyBlack border-white ring-2 ring-audsleyGreen scale-105 shadow'
-                        : 'bg-black/50 border-gray-700 text-gray-400'
-                }`;
-                pill.innerHTML = `<span>${meta.icon}</span><span>${meta.label}</span>`;
-                stepsList.appendChild(pill);
-            });
-        }
-
-        function applyTool(toolKey) {
-            if (!gameRunning || !currentCar) return;
-
-            initAudio();
-            const requiredStep = currentCar.package.steps[currentCar.currentStepIdx];
-
-            if (toolKey === requiredStep) {
-                triggerHaptic(20);
-                currentCar.currentStepIdx++;
-
-                if (toolKey === 'foam') {
-                    currentCar.foamLayer = 1.0;
-                    playSound('spray');
-                    emitParticles('white', 30);
-                } else if (toolKey === 'rinse') {
-                    currentCar.foamLayer = 0.0;
-                    currentCar.dirtLevel = Math.max(0, currentCar.dirtLevel - 0.4);
-                    currentCar.wheelDirt = Math.max(0, currentCar.wheelDirt - 0.5);
-                    playSound('spray');
-                    emitParticles('#38bdf8', 40);
-                } else if (toolKey === 'wheels') {
-                    currentCar.wheelDirt = 0.0;
-                    playSound('brush');
-                    emitParticles('#94a3b8', 25);
-                } else if (toolKey === 'wash') {
-                    currentCar.dirtLevel = Math.max(0, currentCar.dirtLevel - 0.5);
-                    playSound('brush');
-                    emitParticles('#ec4899', 25);
-                } else if (toolKey === 'polish') {
-                    currentCar.glossShine = 1.0;
-                    currentCar.dirtLevel = 0.0;
-                    playSound('polish');
-                    emitParticles('#00d65f', 45);
-                }
-
-                if (currentCar.currentStepIdx >= currentCar.package.steps.length) {
-                    finishCarSuccess();
-                } else {
-                    renderStepPills();
-                }
-
-            } else {
-                triggerHaptic([40, 60, 40]);
-                playSound('error');
-                showPenalty();
-                score = Math.max(0, score - 15);
-                currentCar.patience = Math.max(1, currentCar.patience - 3.5);
-                scoreDisplay.textContent = `£${score}`;
-                danDialogue.textContent = `"Where d'ya get ya car? Don't swirl it!"`;
-            }
-        }
-
-        function finishCarSuccess() {
-            playSound('success');
-            const speedRatio = currentCar.patience / currentCar.maxPatience;
-            const tipBonus = Math.round(currentCar.package.basePrice * speedRatio * 0.5);
-            const payout = currentCar.package.basePrice + tipBonus;
-
-            score += payout;
-            completedCars++;
-
-            scoreDisplay.textContent = `£${score}`;
-            danDialogue.textContent = `"Spot on! +£${payout} earned."`;
-
-            emitParticles('#00d65f', 60, true);
-
-            currentCar.targetX = 1100;
-            setTimeout(() => {
-                if (gameRunning) spawnCar();
-            }, 500);
-        }
-
-        function showPenalty() {
-            penaltySplash.classList.remove('hidden');
-            const cabinet = document.getElementById('game-cabinet');
-            cabinet.classList.add('shake');
-            setTimeout(() => {
-                penaltySplash.classList.add('hidden');
-                cabinet.classList.remove('shake');
-            }, 450);
-        }
-
-        function emitParticles(color, count, sparkle = false) {
-            for (let i = 0; i < count; i++) {
-                activeParticles.push({
-                    x: (currentCar ? currentCar.xOffset : 420) + (Math.random() * 220 - 110),
-                    y: 200 + (Math.random() * 70 - 35),
-                    vx: (Math.random() - 0.5) * 5,
-                    vy: (Math.random() - 0.8) * 4,
-                    color: color,
-                    size: sparkle ? Math.random() * 4 + 2 : Math.random() * 3 + 1.5,
-                    alpha: 1.0,
-                    life: Math.random() * 15 + 15
-                });
-            }
-        }
-
-        function drawCanvas() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            // Floor & Grid
-            ctx.fillStyle = '#171717';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            ctx.strokeStyle = '#222222';
-            ctx.lineWidth = 1;
-            for (let x = 0; x < canvas.width; x += 35) {
-                ctx.beginPath();
-                ctx.moveTo(x, 0);
-                ctx.lineTo(x, canvas.height);
-                ctx.stroke();
-            }
-            for (let y = 0; y < canvas.height; y += 35) {
-                ctx.beginPath();
-                ctx.moveTo(0, y);
-                ctx.lineToHere is an updated version optimized specifically for handheld touchscreens and mobile devices.
-
-### Mobile Optimizations Added
-* **Dynamic Full-Width Touch Canvas:** The bay aspect ratio automatically scales without vertical overflow or horizontal scrolling on small screens.
-* **Sticky Thumb-Friendly Tool Dock:** On mobile screens, the tool buttons lock cleanly beneath the action bay with large tap targets and `touch-action: manipulation` to prevent double-tap zoom delay.
-* **Compact Ticket HUD:** Streamlined the customer order pills and patience gauge into a stacked layout that remains legible on screens as narrow as 360px.
-* **Responsive Dan Avatar & Typography:** Condensed dialogue sizing and stat counts so no text overlaps during fast gameplay.
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Audsley Auto Detailing | Luxury For Your Wheels</title>
-    <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        audsleyGreen: '#00d65f',
-                        audsleyBlack: '#0a0a0a',
-                        audsleyDarkGray: '#171717',
-                        audsleyMidGray: '#242424'
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body { background-color: #0a0a0a; color: white; scroll-behavior: smooth; }
-        .hero-bg {
-            background: linear-gradient(rgba(10,10,10,0.8), rgba(10,10,10,0.4)), url('source/682056844_17935667535236822_6508837621440741059_n.jpg') center/cover no-repeat;
-        }
-        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
-        
-        .pixel-text { font-family: 'Courier New', Courier, monospace; }
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 15px rgba(0,214,95,0.4); }
-            50% { box-shadow: 0 0 25px rgba(0,214,95,0.8); }
-        }
-        .active-bay { animation: pulse-glow 2s infinite ease-in-out; }
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            20%, 60% { transform: translateX(-6px); }
-            40%, 80% { transform: translateX(6px); }
-        }
-        .shake { animation: shake 0.3s ease-in-out; }
-
-        /* Mobile touch responsiveness */
         .touch-action-manipulation {
             touch-action: manipulation;
             -webkit-tap-highlight-color: transparent;
@@ -747,4 +81,835 @@
                 Premium mobile valeting and detailing across Suffolk. Paint correction, protection, and perfection.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href
+                <a href="#contact" class="inline-block bg-audsleyGreen text-audsleyBlack px-6 sm:px-8 py-3.5 sm:py-4 rounded-sm text-base sm:text-lg font-black uppercase tracking-widest hover:bg-white transition-all shadow-[0_0_20px_rgba(0,214,95,0.6)]">
+                    Get a Free Quote
+                </a>
+                <a href="#arcade" class="inline-block border-2 border-audsleyGreen text-audsleyGreen px-6 sm:px-8 py-3.5 sm:py-4 rounded-sm text-base sm:text-lg font-black uppercase tracking-widest hover:bg-audsleyGreen hover:text-audsleyBlack transition-all">
+                    Play Pit-Stop Valet
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 sm:py-24 bg-audsleyDarkGray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-16 fade-in">
+                <h2 class="text-3xl md:text-5xl font-black uppercase tracking-widest text-white">Our <span class="text-audsleyGreen">Services</span></h2>
+                <div class="w-24 h-1 bg-audsleyGreen mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-audsleyBlack rounded-sm overflow-hidden border border-gray-800 hover:border-audsleyGreen transition-colors group fade-in">
+                    <div class="h-64 overflow-hidden">
+                        <img src="source/543798910_17907115287236822_789087944156654349_n.jpg" alt="Valeting" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 sm:p-8">
+                        <h3 class="text-xl sm:text-2xl font-bold uppercase tracking-wider mb-3 text-white">Mobile Valeting</h3>
+                        <p class="text-gray-400 text-sm sm:base">Comprehensive interior and exterior cleaning using safe wash methods to ensure your vehicle looks brand new.</p>
+                    </div>
+                </div>
+                <div class="bg-audsleyBlack rounded-sm overflow-hidden border border-gray-800 hover:border-audsleyGreen transition-colors group fade-in">
+                    <div class="h-64 overflow-hidden">
+                        <img src="source/625396124_17923140687236822_8462207929766964904_n.jpg" alt="Paint Correction" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 sm:p-8">
+                        <h3 class="text-xl sm:text-2xl font-bold uppercase tracking-wider mb-3 text-white">Paint Correction</h3>
+                        <p class="text-gray-400 text-sm sm:base">Advanced machine polishing to remove swirl marks, scratches, and oxidation, restoring a mirror-like gloss.</p>
+                    </div>
+                </div>
+                <div class="bg-audsleyBlack rounded-sm overflow-hidden border border-gray-800 hover:border-audsleyGreen transition-colors group fade-in">
+                    <div class="h-64 overflow-hidden">
+                        <img src="source/626272047_17927465637236822_7562062616031269395_n.jpg" alt="Paint Protection" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 sm:p-8">
+                        <h3 class="text-xl sm:text-2xl font-bold uppercase tracking-wider mb-3 text-white">Paint Protection</h3>
+                        <p class="text-gray-400 text-sm sm:base">Lock in the finish with high-quality waxes, durable sealants, and premium ceramic coatings for long-lasting protection.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16 sm:py-24 bg-audsleyBlack">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-16 fade-in">
+                <h2 class="text-3xl md:text-5xl font-black uppercase tracking-widest text-white">Recent <span class="text-audsleyGreen">Work</span></h2>
+                <div class="w-24 h-1 bg-audsleyGreen mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
+                <img src="source/684832984_17935667529236822_339786056100168975_n.jpg" alt="Gallery Work" class="w-full h-44 sm:h-64 object-cover rounded-sm fade-in hover:opacity-75 transition-opacity cursor-pointer">
+                <img src="source/544854780_17907115248236822_3375562266014378086_n.jpg" alt="Gallery Work" class="w-full h-44 sm:h-64 object-cover rounded-sm fade-in hover:opacity-75 transition-opacity cursor-pointer">
+                <img src="source/625874098_17923140678236822_8314185850937798921_n.jpg" alt="Gallery Work" class="w-full h-44 sm:h-64 object-cover rounded-sm fade-in hover:opacity-75 transition-opacity cursor-pointer">
+                <img src="source/683771243_17935667547236822_4010655022803298097_n.jpg" alt="Gallery Work" class="w-full h-44 sm:h-64 object-cover rounded-sm fade-in hover:opacity-75 transition-opacity cursor-pointer">
+                <img src="source/649218872_17927465718236822_7826895840443526779_n.jpg" alt="Gallery Work" class="w-full h-44 sm:h-64 object-cover rounded-sm fade-in hover:opacity-75 transition-opacity cursor-pointer">
+                <img src="source/626297669_17923140633236822_2208039854349286886_n.jpg" alt="Gallery Work" class="w-full h-44 sm:h-64 object-cover rounded-sm fade-in hover:opacity-75 transition-opacity cursor-pointer">
+            </div>
+        </div>
+    </section>
+
+    <!-- ARCADE MINI-GAME -->
+    <section id="arcade" class="py-12 sm:py-20 bg-audsleyDarkGray border-t border-b border-gray-800">
+        <div class="max-w-4xl mx-auto px-2 sm:px-6 lg:px-8 text-center">
+            
+            <div class="inline-block bg-audsleyBlack border border-audsleyGreen/40 px-3 py-1 rounded-full text-audsleyGreen text-[11px] sm:text-xs font-black tracking-widest uppercase mb-2">
+                Mobile Detailing Mini-Game
+            </div>
+            <h2 class="text-2xl sm:text-4xl md:text-5xl font-black uppercase tracking-widest text-white mb-1 sm:mb-2">
+                The Pit-Stop <span class="text-audsleyGreen">Valet</span>
+            </h2>
+            <p class="text-gray-400 max-w-xl mx-auto text-xs sm:text-sm mb-4 sm:mb-6">
+                Cars are queuing across Suffolk! Tap the correct tools in sequence before the customer's patience runs dry.
+            </p>
+
+            <!-- Game Cabinet -->
+            <div id="game-cabinet" class="relative bg-audsleyBlack rounded-lg border border-audsleyGreen/50 sm:border-2 sm:border-audsleyGreen/60 p-2 sm:p-5 shadow-[0_0_30px_rgba(0,214,95,0.15)] text-left">
+                
+                <!-- HUD Header -->
+                <div class="flex items-center justify-between border-b border-gray-800 pb-2 sm:pb-3 mb-2 sm:mb-3 gap-2">
+                    <div class="flex items-center gap-2 sm:gap-3 min-w-0">
+                        <img src="source/dan-16-bit.jpeg" alt="Dan Audsley" class="w-9 h-9 sm:w-11 sm:h-11 rounded border border-audsleyGreen object-cover flex-shrink-0">
+                        <div class="truncate">
+                            <div class="text-[10px] uppercase text-gray-400 font-bold tracking-wider">Dan Audsley</div>
+                            <div class="text-xs sm:text-sm font-black text-white truncate" id="dan-dialogue">"Where d'ya get ya car?"</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 sm:gap-5 flex-shrink-0">
+                        <div class="text-center">
+                            <div class="text-[9px] sm:text-xs text-gray-400 font-bold uppercase tracking-wider">Time</div>
+                            <div id="timer-display" class="pixel-text text-base sm:text-xl font-black text-audsleyGreen">60s</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-[9px] sm:text-xs text-gray-400 font-bold uppercase tracking-wider">Till</div>
+                            <div id="score-display" class="pixel-text text-base sm:text-xl font-black text-white">£0</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-[9px] sm:text-xs text-gray-400 font-bold uppercase tracking-wider">Done</div>
+                            <div id="completed-display" class="pixel-text text-base sm:text-xl font-black text-audsleyGreen">0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ticket & Order Strip -->
+                <div id="ticket-container" class="bg-audsleyMidGray border border-gray-700/80 rounded p-2 sm:p-3 mb-2 sm:mb-3 flex flex-col gap-2">
+                    <div class="flex items-center justify-between text-xs">
+                        <div class="flex items-center gap-1.5 truncate">
+                            <span class="font-black uppercase text-audsleyGreen tracking-wider truncate" id="package-title">Express Clean</span>
+                            <span class="text-gray-400 text-[11px] truncate" id="car-desc">(Coupe)</span>
+                        </div>
+                        <div class="flex items-center gap-2 flex-shrink-0">
+                            <span class="text-[10px] text-gray-400 uppercase font-bold">Patience</span>
+                            <div class="w-16 sm:w-24 h-2 bg-gray-800 rounded-full overflow-hidden">
+                                <div id="patience-bar" class="h-full bg-audsleyGreen transition-all duration-100" style="width: 100%;"></div>
+                            </div>
+                            <span id="patience-text" class="text-[10px] font-bold text-gray-300 w-7 text-right">100%</span>
+                        </div>
+                    </div>
+                    <div id="steps-list" class="flex flex-wrap items-center gap-1.5 justify-start"></div>
+                </div>
+
+                <!-- Canvas Bay -->
+                <div class="relative bg-gradient-to-b from-[#141414] to-[#0a0a0a] rounded border border-gray-800 overflow-hidden mb-3">
+                    <canvas id="valetCanvas" width="800" height="340" class="w-full h-auto block aspect-[2.35/1]"></canvas>
+                    
+                    <!-- Penalty Splash -->
+                    <div id="penalty-splash" class="hidden absolute inset-0 bg-red-950/85 flex flex-col items-center justify-center pointer-events-none transition-all z-20 px-4 text-center">
+                        <span class="text-3xl sm:text-4xl">⚠️</span>
+                        <h4 class="text-lg sm:text-xl font-black text-red-400 uppercase tracking-widest mt-1">PAINT SCRATCHED!</h4>
+                        <p class="text-xs text-red-200">Wrong tool sequence! -£15 penalty applied.</p>
+                    </div>
+
+                    <!-- Overlay Window -->
+                    <div id="game-overlay" class="absolute inset-0 bg-audsleyBlack/95 flex flex-col items-center justify-center p-4 sm:p-6 text-center z-30">
+                        <div class="max-w-sm">
+                            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 sm:border-4 border-audsleyGreen mx-auto mb-3 overflow-hidden shadow-[0_0_15px_rgba(0,214,95,0.4)]">
+                                <img src="source/dan-16-bit.jpeg" alt="Dan" class="w-full h-full object-cover">
+                            </div>
+                            <h3 id="overlay-title" class="text-xl sm:text-2xl font-black text-white uppercase tracking-wider mb-1">
+                                Ready To Detail?
+                            </h3>
+                            <p id="overlay-desc" class="text-xs sm:text-sm text-gray-300 mb-4">
+                                Complete customer service sequences before time runs out. Tap tools in the correct order below!
+                            </p>
+                            <button id="main-action-btn" type="button" class="touch-action-manipulation bg-audsleyGreen text-audsleyBlack px-6 py-2.5 sm:px-8 sm:py-3 font-black text-sm sm:text-base uppercase tracking-widest rounded-sm hover:bg-white active:scale-95 transition-all shadow-[0_0_15px_rgba(0,214,95,0.6)] cursor-pointer">
+                                Open Bay (Start)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tool Rack -->
+                <div>
+                    <div class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-gray-400 mb-1.5 flex justify-between items-center px-1">
+                        <span>Tap Tool In Sequence:</span>
+                        <span class="text-audsleyGreen text-[10px] hidden sm:inline">Keys 1 - 5</span>
+                    </div>
+                    <div class="grid grid-cols-5 gap-1.5 sm:gap-2.5" id="tool-rack">
+                        <button data-tool="foam" class="tool-btn touch-action-manipulation bg-audsleyMidGray hover:bg-gray-800 active:bg-audsleyGreen/30 border border-gray-700 active:border-audsleyGreen p-2 sm:p-3 rounded text-center transition-all cursor-pointer flex flex-col items-center justify-center min-h-[64px] sm:min-h-[76px]">
+                            <span class="text-xl sm:text-2xl pointer-events-none">🧼</span>
+                            <span class="text-[10px] sm:text-xs font-black uppercase text-white tracking-tight mt-0.5 pointer-events-none leading-tight">Foam</span>
+                        </button>
+
+                        <button data-tool="wheels" class="tool-btn touch-action-manipulation bg-audsleyMidGray hover:bg-gray-800 active:bg-audsleyGreen/30 border border-gray-700 active:border-audsleyGreen p-2 sm:p-3 rounded text-center transition-all cursor-pointer flex flex-col items-center justify-center min-h-[64px] sm:min-h-[76px]">
+                            <span class="text-xl sm:text-2xl pointer-events-none">🛞</span>
+                            <span class="text-[10px] sm:text-xs font-black uppercase text-white tracking-tight mt-0.5 pointer-events-none leading-tight">Wheels</span>
+                        </button>
+
+                        <button data-tool="wash" class="tool-btn touch-action-manipulation bg-audsleyMidGray hover:bg-gray-800 active:bg-audsleyGreen/30 border border-gray-700 active:border-audsleyGreen p-2 sm:p-3 rounded text-center transition-all cursor-pointer flex flex-col items-center justify-center min-h-[64px] sm:min-h-[76px]">
+                            <span class="text-xl sm:text-2xl pointer-events-none">🧽</span>
+                            <span class="text-[10px] sm:text-xs font-black uppercase text-white tracking-tight mt-0.5 pointer-events-none leading-tight">Mitt</span>
+                        </button>
+
+                        <button data-tool="rinse" class="tool-btn touch-action-manipulation bg-audsleyMidGray hover:bg-gray-800 active:bg-audsleyGreen/30 border border-gray-700 active:border-audsleyGreen p-2 sm:p-3 rounded text-center transition-all cursor-pointer flex flex-col items-center justify-center min-h-[64px] sm:min-h-[76px]">
+                            <span class="text-xl sm:text-2xl pointer-events-none">💦</span>
+                            <span class="text-[10px] sm:text-xs font-black uppercase text-white tracking-tight mt-0.5 pointer-events-none leading-tight">Rinse</span>
+                        </button>
+
+                        <button data-tool="polish" class="tool-btn touch-action-manipulation bg-audsleyMidGray hover:bg-gray-800 active:bg-audsleyGreen/30 border border-gray-700 active:border-audsleyGreen p-2 sm:p-3 rounded text-center transition-all cursor-pointer flex flex-col items-center justify-center min-h-[64px] sm:min-h-[76px]">
+                            <span class="text-xl sm:text-2xl pointer-events-none">✨</span>
+                            <span class="text-[10px] sm:text-xs font-black uppercase text-white tracking-tight mt-0.5 pointer-events-none leading-tight">Polish</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Marquee -->
+    <div class="bg-audsleyGreen py-3 sm:py-4 overflow-hidden border-y-2 sm:border-y-4 border-audsleyDarkGray">
+        <div class="whitespace-nowrap flex space-x-12 animate-[marquee_20s_linear_infinite]">
+            <span class="text-audsleyBlack font-black uppercase tracking-widest text-base sm:text-lg">★★★★★ "Where d'ya get ya car?"</span>
+            <span class="text-audsleyBlack font-black uppercase tracking-widest text-base sm:text-lg">★★★★★ "Absolutely flawless finish on my car!"</span>
+            <span class="text-audsleyBlack font-black uppercase tracking-widest text-base sm:text-lg">★★★★★ "The best mobile valeting in Suffolk."</span>
+            <span class="text-audsleyBlack font-black uppercase tracking-widest text-base sm:text-lg">★★★★★ "Highly recommend the ceramic coating package."</span>
+            <span class="text-audsleyBlack font-black uppercase tracking-widest text-base sm:text-lg">★★★★★ "Professional, on-time, and meticulous attention to detail."</span>
+        </div>
+    </div>
+    <style>
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+    </style>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-audsleyBlack pt-12 pb-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
+            <img src="source/audsleylogo2.png" alt="Audsley Logo" class="h-12 sm:h-16 mx-auto mb-6 object-contain opacity-80">
+            <h2 class="text-xl sm:text-2xl font-black uppercase tracking-widest text-white mb-6">Ready to book?</h2>
+            <a href="mailto:info@audsleyautodetailing.co.uk" class="inline-block border-2 border-audsleyGreen text-audsleyGreen px-6 sm:px-8 py-2.5 sm:py-3 rounded-sm font-bold uppercase tracking-widest hover:bg-audsleyGreen hover:text-audsleyBlack transition-colors mb-8">
+                Contact Us
+            </a>
+            <p class="text-gray-500 text-xs sm:text-sm tracking-wider">
+                &copy; 2026 Audsley Auto Detailing. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Game Engine -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach((el) => {
+                observer.observe(el);
+            });
+        });
+
+        let audioCtx = null;
+        function initAudio() {
+            try {
+                if (!audioCtx) {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                if (audioCtx && audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+            } catch (e) {}
+        }
+
+        function playSound(type) {
+            if (!audioCtx || audioCtx.state !== 'running') return;
+            try {
+                const now = audioCtx.currentTime;
+                if (type === 'spray') {
+                    const bufferSize = audioCtx.sampleRate * 0.18;
+                    const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+                    const data = buffer.getChannelData(0);
+                    for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+                    const noise = audioCtx.createBufferSource();
+                    noise.buffer = buffer;
+                    const filter = audioCtx.createBiquadFilter();
+                    filter.type = 'bandpass';
+                    filter.frequency.setValueAtTime(1200, now);
+                    const gain = audioCtx.createGain();
+                    gain.gain.setValueAtTime(0.2, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.17);
+                    noise.connect(filter);
+                    filter.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    noise.start();
+                } else if (type === 'brush') {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(140, now);
+                    osc.frequency.exponentialRampToValueAtTime(70, now + 0.15);
+                    gain.gain.setValueAtTime(0.25, now);
+                    gain.gain.linearRampToValueAtTime(0.01, now + 0.15);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start();
+                    osc.stop(now + 0.15);
+                } else if (type === 'polish') {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(320, now);
+                    osc.frequency.linearRampToValueAtTime(540, now + 0.2);
+                    gain.gain.setValueAtTime(0.12, now);
+                    gain.gain.linearRampToValueAtTime(0.01, now + 0.2);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start();
+                    osc.stop(now + 0.2);
+                } else if (type === 'success') {
+                    [523.25, 659.25, 783.99, 1046.50].forEach((freq, idx) => {
+                        const osc = audioCtx.createOscillator();
+                        const gain = audioCtx.createGain();
+                        osc.type = 'sine';
+                        osc.frequency.setValueAtTime(freq, now + idx * 0.05);
+                        gain.gain.setValueAtTime(0.12, now + idx * 0.05);
+                        gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.05 + 0.14);
+                        osc.connect(gain);
+                        gain.connect(audioCtx.destination);
+                        osc.start(now + idx * 0.05);
+                        osc.stop(now + idx * 0.05 + 0.14);
+                    });
+                } else if (type === 'error') {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(110, now);
+                    osc.frequency.linearRampToValueAtTime(90, now + 0.2);
+                    gain.gain.setValueAtTime(0.25, now);
+                    gain.gain.linearRampToValueAtTime(0.01, now + 0.2);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start();
+                    osc.stop(now + 0.2);
+                }
+            } catch(e) {}
+        }
+
+        const canvas = document.getElementById('valetCanvas');
+        const ctx = canvas.getContext('2d');
+
+        const overlay = document.getElementById('game-overlay');
+        const overlayTitle = document.getElementById('overlay-title');
+        const overlayDesc = document.getElementById('overlay-desc');
+        const mainActionBtn = document.getElementById('main-action-btn');
+        const timerDisplay = document.getElementById('timer-display');
+        const scoreDisplay = document.getElementById('score-display');
+        const completedDisplay = document.getElementById('completed-display');
+        const packageTitle = document.getElementById('package-title');
+        const carDesc = document.getElementById('car-desc');
+        const stepsList = document.getElementById('steps-list');
+        const patienceBar = document.getElementById('patience-bar');
+        const patienceText = document.getElementById('patience-text');
+        const penaltySplash = document.getElementById('penalty-splash');
+        const danDialogue = document.getElementById('dan-dialogue');
+        const toolBtns = document.querySelectorAll('.tool-btn');
+
+        const danSprite = new Image();
+        danSprite.src = 'source/dan-16-bit.jpeg';
+
+        const PACKAGES = [
+            { name: 'Express Clean', steps: ['foam', 'rinse', 'wash'], basePrice: 40, maxPatience: 16 },
+            { name: 'Wheel Master', steps: ['wheels', 'rinse', 'wash'], basePrice: 50, maxPatience: 18 },
+            { name: 'Safe Wash & Dry', steps: ['foam', 'rinse', 'wash', 'rinse'], basePrice: 65, maxPatience: 20 },
+            { name: 'Full Enhancement', steps: ['foam', 'wash', 'rinse', 'polish'], basePrice: 90, maxPatience: 22 }
+        ];
+
+        const TOOL_META = {
+            foam:   { label: 'Foam',   icon: '🧼' },
+            wheels: { label: 'Wheels', icon: '🛞' },
+            wash:   { label: 'Mitt',   icon: '🧽' },
+            rinse:  { label: 'Rinse',  icon: '💦' },
+            polish: { label: 'Polish', icon: '✨' }
+        };
+
+        const CAR_MODELS = [
+            { type: 'Coupe', scaleX: 1.0, scaleY: 0.9, colors: ['#1e40af', '#b91c1c', '#15803d', '#334155'] },
+            { type: 'SUV', scaleX: 1.15, scaleY: 1.15, colors: ['#0f172a', '#78716c', '#047857', '#475569'] },
+            { type: 'Hot Hatch', scaleX: 0.85, scaleY: 0.95, colors: ['#ea580c', '#eab308', '#0284c7', '#dc2626'] }
+        ];
+
+        const DAN_QUOTES = [
+            "\"Where d'ya get ya car?\"",
+            "\"Safe wash method only!\"",
+            "\"Watch those lower sills!\"",
+            "\"Rinse off that heavy grit!\"",
+            "\"Mirror gloss coming through!\""
+        ];
+
+        let gameRunning = false;
+        let timeLeft = 60;
+        let score = 0;
+        let completedCars = 0;
+        let timerInterval = null;
+        let currentCar = null;
+        let activeParticles = [];
+
+        function getRandomElement(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        function spawnCar() {
+            const model = getRandomElement(CAR_MODELS);
+            const pkg = getRandomElement(PACKAGES);
+            const carColor = getRandomElement(model.colors);
+
+            currentCar = {
+                modelType: model.type,
+                color: carColor,
+                scaleX: model.scaleX,
+                scaleY: model.scaleY,
+                package: pkg,
+                currentStepIdx: 0,
+                patience: pkg.maxPatience,
+                maxPatience: pkg.maxPatience,
+                dirtLevel: 1.0,
+                foamLayer: 0.0,
+                wheelDirt: 1.0,
+                glossShine: 0.0,
+                xOffset: -400,
+                targetX: 430
+            };
+
+            packageTitle.textContent = pkg.name;
+            carDesc.textContent = `(${model.type})`;
+            danDialogue.textContent = getRandomElement(DAN_QUOTES);
+            renderStepPills();
+        }
+
+        function renderStepPills() {
+            stepsList.innerHTML = '';
+            if (!currentCar) return;
+
+            currentCar.package.steps.forEach((stepKey, idx) => {
+                const meta = TOOL_META[stepKey];
+                const pill = document.createElement('div');
+                pill.className = `flex items-center gap-1 px-2 py-0.5 rounded text-[10px] sm:text-xs font-bold uppercase tracking-wider border transition-all ${
+                    idx < currentCar.currentStepIdx
+                        ? 'bg-audsleyGreen/20 border-audsleyGreen text-audsleyGreen line-through opacity-50'
+                        : idx === currentCar.currentStepIdx
+                        ? 'bg-white text-audsleyBlack border-white ring-2 ring-audsleyGreen scale-105'
+                        : 'bg-black/40 border-gray-700 text-gray-400'
+                }`;
+                pill.innerHTML = `<span>${meta.icon}</span><span>${meta.label}</span>`;
+                stepsList.appendChild(pill);
+            });
+        }
+
+        function applyTool(toolKey) {
+            if (!gameRunning || !currentCar) return;
+
+            initAudio();
+            const requiredStep = currentCar.package.steps[currentCar.currentStepIdx];
+
+            if (toolKey === requiredStep) {
+                currentCar.currentStepIdx++;
+
+                if (toolKey === 'foam') {
+                    currentCar.foamLayer = 1.0;
+                    playSound('spray');
+                    emitParticles('white', 30);
+                } else if (toolKey === 'rinse') {
+                    currentCar.foamLayer = 0.0;
+                    currentCar.dirtLevel = Math.max(0, currentCar.dirtLevel - 0.4);
+                    currentCar.wheelDirt = Math.max(0, currentCar.wheelDirt - 0.5);
+                    playSound('spray');
+                    emitParticles('#38bdf8', 35);
+                } else if (toolKey === 'wheels') {
+                    currentCar.wheelDirt = 0.0;
+                    playSound('brush');
+                    emitParticles('#94a3b8', 25);
+                } else if (toolKey === 'wash') {
+                    currentCar.dirtLevel = Math.max(0, currentCar.dirtLevel - 0.5);
+                    playSound('brush');
+                    emitParticles('#ec4899', 20);
+                } else if (toolKey === 'polish') {
+                    currentCar.glossShine = 1.0;
+                    currentCar.dirtLevel = 0.0;
+                    playSound('polish');
+                    emitParticles('#00d65f', 45);
+                }
+
+                if (currentCar.currentStepIdx >= currentCar.package.steps.length) {
+                    finishCarSuccess();
+                } else {
+                    renderStepPills();
+                }
+
+            } else {
+                playSound('error');
+                showPenalty();
+                score = Math.max(0, score - 15);
+                currentCar.patience = Math.max(1, currentCar.patience - 3.5);
+                scoreDisplay.textContent = `£${score}`;
+                danDialogue.textContent = `"Where d'ya get ya car? Don't swirl that paint!"`;
+            }
+        }
+
+        function finishCarSuccess() {
+            playSound('success');
+            const speedRatio = currentCar.patience / currentCar.maxPatience;
+            const tipBonus = Math.round(currentCar.package.basePrice * speedRatio * 0.5);
+            const payout = currentCar.package.basePrice + tipBonus;
+
+            score += payout;
+            completedCars++;
+
+            scoreDisplay.textContent = `£${score}`;
+            completedDisplay.textContent = completedCars;
+            danDialogue.textContent = `"Flawless finish! +£${payout} in the till."`;
+
+            emitParticles('#00d65f', 50, true);
+
+            currentCar.targetX = 1100;
+            setTimeout(() => {
+                if (gameRunning) spawnCar();
+            }, 550);
+        }
+
+        function showPenalty() {
+            penaltySplash.classList.remove('hidden');
+            const cabinet = document.getElementById('game-cabinet');
+            cabinet.classList.add('shake');
+            setTimeout(() => {
+                penaltySplash.classList.add('hidden');
+                cabinet.classList.remove('shake');
+            }, 450);
+        }
+
+        function emitParticles(color, count, sparkle = false) {
+            for (let i = 0; i < count; i++) {
+                activeParticles.push({
+                    x: (currentCar ? currentCar.xOffset : 430) + (Math.random() * 240 - 120),
+                    y: 185 + (Math.random() * 70 - 35),
+                    vx: (Math.random() - 0.5) * 5,
+                    vy: (Math.random() - 0.8) * 4,
+                    color: color,
+                    size: sparkle ? Math.random() * 4 + 3 : Math.random() * 3 + 2,
+                    alpha: 1.0,
+                    life: Math.random() * 18 + 15
+                });
+            }
+        }
+
+        function drawCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Workshop floor
+            ctx.fillStyle = '#171717';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Floor Grid
+            ctx.strokeStyle = '#222222';
+            ctx.lineWidth = 1;
+            for (let x = 0; x < canvas.width; x += 40) {
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, canvas.height);
+                ctx.stroke();
+            }
+            for (let y = 0; y < canvas.height; y += 40) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(canvas.width, y);
+                ctx.stroke();
+            }
+
+            // Overhead LED strip
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
+            ctx.fillRect(40, 0, 720, 18);
+            ctx.fillStyle = '#00d65f';
+            ctx.fillRect(160, 8, 480, 2);
+
+            // Dan Station
+            ctx.fillStyle = '#262626';
+            ctx.fillRect(20, 70, 95, 175);
+            ctx.strokeStyle = '#383838';
+            ctx.lineWidth = 1.5;
+            ctx.strokeRect(20, 70, 95, 175);
+
+            if (danSprite.complete && danSprite.naturalHeight !== 0) {
+                ctx.drawImage(danSprite, 28, 80, 79, 98);
+            } else {
+                ctx.fillStyle = '#00d65f';
+                ctx.fillRect(28, 80, 79, 98);
+            }
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 11px "Courier New", monospace';
+            ctx.textAlign = 'center';
+            ctx.fillText('DAN (PRO)', 67, 202);
+            ctx.fillStyle = '#00d65f';
+            ctx.fillText('BAY 01', 67, 222);
+
+            // Vehicle render
+            if (currentCar) {
+                currentCar.xOffset += (currentCar.targetX - currentCar.xOffset) * 0.14;
+
+                ctx.save();
+                ctx.translate(currentCar.xOffset, 180);
+
+                const cx = 0;
+                const cy = 0;
+                const sx = currentCar.scaleX;
+                const sy = currentCar.scaleY;
+
+                // Shadow
+                ctx.fillStyle = 'rgba(0,0,0,0.5)';
+                ctx.beginPath();
+                ctx.ellipse(cx, cy + 50 * sy, 180 * sx, 18 * sy, 0, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Wheels
+                const wheelPositions = [-110 * sx, 110 * sx];
+                wheelPositions.forEach(wx => {
+                    ctx.fillStyle = '#1c1917';
+                    ctx.beginPath();
+                    ctx.arc(wx, cy + 40 * sy, 26 * sy, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    ctx.fillStyle = currentCar.wheelDirt > 0.4 ? '#475569' : '#e2e8f0';
+                    ctx.beginPath();
+                    ctx.arc(wx, cy + 40 * sy, 16 * sy, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    ctx.fillStyle = '#00d65f';
+                    ctx.fillRect(wx - 7, cy + 28 * sy, 14, 5);
+
+                    if (currentCar.wheelDirt > 0.1) {
+                        ctx.fillStyle = `rgba(120, 53, 15, ${currentCar.wheelDirt * 0.7})`;
+                        ctx.beginPath();
+                        ctx.arc(wx, cy + 40 * sy, 16 * sy, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                });
+
+                // Bodywork
+                ctx.fillStyle = currentCar.color;
+                ctx.beginPath();
+                ctx.moveTo(-150 * sx, cy + 32 * sy);
+                ctx.lineTo(-160 * sx, cy + 8 * sy);
+                ctx.lineTo(-115 * sx, cy - 6 * sy);
+                ctx.lineTo(-60 * sx, cy - 40 * sy);
+                ctx.lineTo(40 * sx, cy - 40 * sy);
+                ctx.lineTo(120 * sx, cy - 6 * sy);
+                ctx.lineTo(160 * sx, cy + 10 * sy);
+                ctx.lineTo(155 * sx, cy + 32 * sy);
+                ctx.closePath();
+                ctx.fill();
+
+                // Windows
+                ctx.fillStyle = '#0f172a';
+                ctx.beginPath();
+                ctx.moveTo(-54 * sx, cy - 36 * sy);
+                ctx.lineTo(-105 * sx, cy - 6 * sy);
+                ctx.lineTo(105 * sx, cy - 6 * sy);
+                ctx.lineTo(34 * sx, cy - 36 * sy);
+                ctx.closePath();
+                ctx.fill();
+
+                // Lights
+                ctx.fillStyle = '#ef4444';
+                ctx.fillRect(-160 * sx, cy + 10 * sy, 7 * sx, 8 * sy);
+                ctx.fillStyle = '#38bdf8';
+                ctx.fillRect(153 * sx, cy + 12 * sy, 7 * sx, 8 * sy);
+
+                // Dirt Layer
+                if (currentCar.dirtLevel > 0.05) {
+                    ctx.fillStyle = `rgba(113, 63, 18, ${currentCar.dirtLevel * 0.75})`;
+                    ctx.beginPath();
+                    ctx.moveTo(-150 * sx, cy + 32 * sy);
+                    ctx.lineTo(-160 * sx, cy + 8 * sy);
+                    ctx.lineTo(-115 * sx, cy - 6 * sy);
+                    ctx.lineTo(-60 * sx, cy - 40 * sy);
+                    ctx.lineTo(40 * sx, cy - 40 * sy);
+                    ctx.lineTo(120 * sx, cy - 6 * sy);
+                    ctx.lineTo(160 * sx, cy + 10 * sy);
+                    ctx.lineTo(155 * sx, cy + 32 * sy);
+                    ctx.closePath();
+                    ctx.fill();
+
+                    ctx.fillStyle = `rgba(67, 36, 10, ${currentCar.dirtLevel * 0.9})`;
+                    ctx.beginPath();
+                    ctx.arc(-75 * sx, cy + 12 * sy, 12 * sy, 0, Math.PI * 2);
+                    ctx.arc(35 * sx, cy + 18 * sy, 15 * sy, 0, Math.PI * 2);
+                    ctx.arc(95 * sx, cy + 8 * sy, 11 * sy, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                // Foam Layer
+                if (currentCar.foamLayer > 0.05) {
+                    ctx.fillStyle = `rgba(255, 255, 255, ${currentCar.foamLayer * 0.85})`;
+                    ctx.beginPath();
+                    ctx.moveTo(-152 * sx, cy + 33 * sy);
+                    ctx.lineTo(-162 * sx, cy + 6 * sy);
+                    ctx.lineTo(-117 * sx, cy - 8 * sy);
+                    ctx.lineTo(-62 * sx, cy - 42 * sy);
+                    ctx.lineTo(42 * sx, cy - 42 * sy);
+                    ctx.lineTo(122 * sx, cy - 8 * sy);
+                    ctx.lineTo(162 * sx, cy + 8 * sy);
+                    ctx.lineTo(157 * sx, cy + 33 * sy);
+                    ctx.closePath();
+                    ctx.fill();
+                }
+
+                // Gloss Sparkles
+                if (currentCar.glossShine > 0.5) {
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.7)';
+                    ctx.lineWidth = 2.5;
+                    ctx.beginPath();
+                    ctx.moveTo(-140 * sx, cy + 6 * sy);
+                    ctx.lineTo(-100 * sx, cy - 6 * sy);
+                    ctx.lineTo(100 * sx, cy - 6 * sy);
+                    ctx.lineTo(150 * sx, cy + 8 * sy);
+                    ctx.stroke();
+
+                    ctx.fillStyle = '#ffffff';
+                    ctx.fillText('✦', -50 * sx, cy - 12 * sy);
+                    ctx.fillText('✦', 60 * sx, cy);
+                }
+
+                ctx.restore();
+            }
+
+            // Particles
+            for (let i = activeParticles.length - 1; i >= 0; i--) {
+                const p = activeParticles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+                p.alpha -= 0.04;
+                p.life--;
+
+                ctx.fillStyle = p.color;
+                ctx.globalAlpha = Math.max(0, p.alpha);
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.globalAlpha = 1.0;
+
+                if (p.life <= 0 || p.alpha <= 0) {
+                    activeParticles.splice(i, 1);
+                }
+            }
+
+            requestAnimationFrame(drawCanvas);
+        }
+
+        function startGame() {
+            initAudio();
+            gameRunning = true;
+            timeLeft = 60;
+            score = 0;
+            completedCars = 0;
+
+            timerDisplay.textContent = `${timeLeft}s`;
+            scoreDisplay.textContent = `£${score}`;
+            completedDisplay.textContent = completedCars;
+
+            overlay.style.display = 'none';
+            document.getElementById('game-cabinet').classList.add('active-bay');
+
+            spawnCar();
+
+            clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                if (!gameRunning) return;
+
+                timeLeft--;
+                timerDisplay.textContent = `${timeLeft}s`;
+
+                if (currentCar) {
+                    currentCar.patience -= 0.5;
+                    const pct = Math.max(0, Math.round((currentCar.patience / currentCar.maxPatience) * 100));
+                    patienceBar.style.width = `${pct}%`;
+                    patienceText.textContent = `${pct}%`;
+
+                    if (pct < 25) {
+                        patienceBar.className = 'h-full bg-red-500 transition-all duration-100';
+                    } else if (pct < 55) {
+                        patienceBar.className = 'h-full bg-amber-400 transition-all duration-100';
+                    } else {
+                        patienceBar.className = 'h-full bg-audsleyGreen transition-all duration-100';
+                    }
+
+                    if (currentCar.patience <= 0) {
+                        playSound('error');
+                        danDialogue.textContent = `"Customer walked out! Lost payment!"`;
+                        currentCar.targetX = 1100;
+                        setTimeout(() => {
+                            if (gameRunning) spawnCar();
+                        }, 450);
+                    }
+                }
+
+                if (timeLeft <= 0) {
+                    endGame();
+                }
+            }, 1000);
+        }
+
+        function endGame() {
+            gameRunning = false;
+            clearInterval(timerInterval);
+            document.getElementById('game-cabinet').classList.remove('active-bay');
+
+            overlayTitle.textContent = "Shift Over!";
+            overlayDesc.innerHTML = `
+                Detailing shift complete!<br>
+                Cars Finished: <strong class="text-audsleyGreen">${completedCars}</strong><br>
+                Total Revenue: <strong class="text-audsleyGreen">£${score}</strong>
+            `;
+            mainActionBtn.textContent = "Play Again";
+            overlay.style.display = 'flex';
+        }
+
+        toolBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const tool = btn.getAttribute('data-tool');
+                applyTool(tool);
+            });
+        });
+
+        window.addEventListener('keydown', (e) => {
+            if (!gameRunning) return;
+            if (e.key === '1') applyTool('foam');
+            if (e.key === '2') applyTool('wheels');
+            if (e.key === '3') applyTool('wash');
+            if (e.key === '4') applyTool('rinse');
+            if (e.key === '5') applyTool('polish');
+        });
+
+        mainActionBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            startGame();
+        });
+
+        requestAnimationFrame(drawCanvas);
+    </script>
+</body>
+</html>
