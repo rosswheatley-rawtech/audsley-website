@@ -12,7 +12,8 @@
                     colors: {
                         audsleyGreen: '#00d65f',
                         audsleyBlack: '#0a0a0a',
-                        audsleyDarkGray: '#171717'
+                        audsleyDarkGray: '#171717',
+                        audsleyMidGray: '#242424'
                     }
                 }
             }
@@ -26,13 +27,19 @@
         .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
         
-        /* Game Styles */
-        #game-container { position: relative; width: 100%; max-width: 600px; margin: 0 auto; background: #171717; border: 4px solid #00d65f; border-radius: 8px; overflow: hidden; }
-        #gameCanvas { display: block; width: 100%; height: 400px; background: url('https://images.unsplash.com/photo-1605810731652-3ebf5d210ba4?q=80&w=600&auto=format&fit=crop') center/cover; }
-        #game-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 10; }
-        .pixel-font { font-family: 'Courier New', Courier, monospace; font-weight: bold; }
-        .mobile-controls { display: none; }
-        @media (max-width: 768px) { .mobile-controls { display: flex; } }
+        /* Game Bay FX */
+        .pixel-text { font-family: 'Courier New', Courier, monospace; }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 15px rgba(0,214,95,0.4); }
+            50% { box-shadow: 0 0 25px rgba(0,214,95,0.8); }
+        }
+        .active-bay { animation: pulse-glow 2s infinite ease-in-out; }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-6px); }
+            40%, 80% { transform: translateX(6px); }
+        }
+        .shake { animation: shake 0.3s ease-in-out; }
     </style>
 </head>
 <body class="font-sans antialiased">
@@ -49,7 +56,7 @@
                         <a href="#home" class="hover:text-audsleyGreen px-3 py-2 rounded-md text-sm font-bold uppercase tracking-widest transition-colors">Home</a>
                         <a href="#services" class="hover:text-audsleyGreen px-3 py-2 rounded-md text-sm font-bold uppercase tracking-widest transition-colors">Services</a>
                         <a href="#gallery" class="hover:text-audsleyGreen px-3 py-2 rounded-md text-sm font-bold uppercase tracking-widest transition-colors">Gallery</a>
-                        <a href="#arcade" class="hover:text-audsleyGreen px-3 py-2 rounded-md text-sm font-bold uppercase tracking-widest transition-colors">Arcade</a>
+                        <a href="#arcade" class="text-audsleyGreen px-3 py-2 rounded-md text-sm font-bold uppercase tracking-widest border border-audsleyGreen/40 hover:bg-audsleyGreen hover:text-audsleyBlack transition-all">Pit-Stop Game</a>
                         <a href="#contact" class="bg-audsleyGreen text-audsleyBlack px-6 py-2 rounded-sm text-sm font-black uppercase tracking-widest hover:bg-white transition-all shadow-[0_0_15px_rgba(0,214,95,0.5)]">Book Now</a>
                     </div>
                 </div>
@@ -69,9 +76,14 @@
             <p class="mt-4 text-xl md:text-2xl text-gray-300 font-light tracking-wide max-w-2xl mx-auto mb-8">
                 Premium mobile valeting and detailing across Suffolk. Paint correction, protection, and perfection.
             </p>
-            <a href="#contact" class="inline-block bg-audsleyGreen text-audsleyBlack px-8 py-4 rounded-sm text-lg font-black uppercase tracking-widest hover:bg-white hover:scale-105 transition-all shadow-[0_0_20px_rgba(0,214,95,0.6)]">
-                Get a Free Quote
-            </a>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="inline-block bg-audsleyGreen text-audsleyBlack px-8 py-4 rounded-sm text-lg font-black uppercase tracking-widest hover:bg-white hover:scale-105 transition-all shadow-[0_0_20px_rgba(0,214,95,0.6)]">
+                    Get a Free Quote
+                </a>
+                <a href="#arcade" class="inline-block border-2 border-audsleyGreen text-audsleyGreen px-8 py-4 rounded-sm text-lg font-black uppercase tracking-widest hover:bg-audsleyGreen hover:text-audsleyBlack transition-all">
+                    Play Pit-Stop Valet
+                </a>
+            </div>
         </div>
     </section>
 
@@ -134,24 +146,149 @@
         </div>
     </section>
 
-    <!-- Arcade Game Section -->
-    <section id="arcade" class="py-24 bg-audsleyDarkGray border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
-            <h2 class="text-3xl md:text-5xl font-black uppercase tracking-widest text-white mb-2">Audsley's Auto <span class="text-audsleyGreen">Washout</span></h2>
-            <p class="text-gray-400 mb-8">Catch the dirty cars to clean them before they hit the driveway! Use left/right arrows or tap the sides of the game.</p>
+    <!-- NEW ARCADE MINI-GAME: PIT-STOP VALET -->
+    <section id="arcade" class="py-20 bg-audsleyDarkGray border-t border-b border-gray-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             
-            <div id="game-container" class="shadow-[0_0_30px_rgba(0,214,95,0.2)]">
-                <div id="game-overlay">
-                    <h3 class="text-4xl text-audsleyGreen font-black uppercase tracking-widest mb-4">Auto Washout</h3>
-                    <p class="text-white mb-6 pixel-font">Clean as many cars as you can!</p>
-                    <button id="start-btn" class="bg-audsleyGreen text-audsleyBlack px-6 py-3 font-bold uppercase tracking-widest rounded-sm hover:bg-white transition-colors">Start Game</button>
-                </div>
-                <canvas id="gameCanvas" width="600" height="400"></canvas>
+            <div class="inline-block bg-audsleyBlack border border-audsleyGreen/40 px-4 py-1 rounded-full text-audsleyGreen text-xs font-black tracking-widest uppercase mb-3">
+                Dan's Mobile Detailing Challenge
             </div>
-            
-            <div class="mobile-controls justify-center gap-4 mt-6">
-                <button id="btn-left" class="bg-gray-800 text-white p-4 rounded-full w-16 h-16 active:bg-audsleyGreen text-xl font-bold">&larr;</button>
-                <button id="btn-right" class="bg-gray-800 text-white p-4 rounded-full w-16 h-16 active:bg-audsleyGreen text-xl font-bold">&rarr;</button>
+            <h2 class="text-3xl md:text-5xl font-black uppercase tracking-widest text-white mb-2">
+                The Pit-Stop <span class="text-audsleyGreen">Valet</span>
+            </h2>
+            <p class="text-gray-400 max-w-xl mx-auto text-sm md:text-base mb-8">
+                Dirty cars are queuing up across Suffolk! Follow the service tickets and execute each detailing step in sequence before customer patience runs out. Don't swirl the paint!
+            </p>
+
+            <!-- Game Cabinet -->
+            <div id="game-cabinet" class="relative bg-audsleyBlack rounded-lg border-2 border-audsleyGreen/60 p-4 sm:p-6 shadow-[0_0_40px_rgba(0,214,95,0.2)] text-left">
+                
+                <!-- HUD: Top Bar -->
+                <div class="flex flex-wrap items-center justify-between border-b border-gray-800 pb-4 mb-4 gap-3">
+                    <div class="flex items-center gap-3">
+                        <img src="source/dan-16-bit.jpeg" alt="Dan Audsley" class="w-12 h-12 rounded border-2 border-audsleyGreen object-cover">
+                        <div>
+                            <div class="text-xs uppercase text-gray-400 font-bold tracking-wider">Detailer on Duty</div>
+                            <div class="text-sm font-black text-white" id="dan-dialogue">"Safe wash method only, mate!"</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-6">
+                        <div class="text-center">
+                            <div class="text-xs text-gray-400 font-bold uppercase tracking-wider">Clock</div>
+                            <div id="timer-display" class="pixel-text text-2xl font-black text-audsleyGreen">60s</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-xs text-gray-400 font-bold uppercase tracking-wider">Earnings</div>
+                            <div id="score-display" class="pixel-text text-2xl font-black text-white">£0</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-xs text-gray-400 font-bold uppercase tracking-wider">Cars Finished</div>
+                            <div id="completed-display" class="pixel-text text-2xl font-black text-audsleyGreen">0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Ticket Banner -->
+                <div id="ticket-container" class="bg-audsleyMidGray border border-gray-700 rounded-md p-3 mb-4 flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div class="w-full md:w-auto">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-black uppercase text-audsleyGreen tracking-wider" id="package-title">Standard Decon</span>
+                            <span class="text-xs text-gray-400" id="car-desc">(Coupe • Estoril Blue)</span>
+                        </div>
+                        <div class="text-xs text-gray-300 font-semibold mt-1">Execute Steps In Order:</div>
+                    </div>
+                    <!-- Order Pills -->
+                    <div id="steps-list" class="flex flex-wrap items-center gap-2 w-full md:w-auto justify-start md:justify-end">
+                        <!-- Injected via JavaScript -->
+                    </div>
+                    <!-- Patience Gauge -->
+                    <div class="w-full md:w-36">
+                        <div class="flex justify-between text-[11px] text-gray-400 font-bold mb-1">
+                            <span>PATIENCE</span>
+                            <span id="patience-text">100%</span>
+                        </div>
+                        <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+                            <div id="patience-bar" class="h-full bg-audsleyGreen transition-all duration-100" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Canvas: Detailing Bay -->
+                <div class="relative bg-gradient-to-b from-[#141414] to-[#0d0d0d] rounded border border-gray-800 overflow-hidden mb-4">
+                    <canvas id="valetCanvas" width="900" height="340" class="w-full h-auto block"></canvas>
+                    
+                    <!-- Penalty Notification Splash -->
+                    <div id="penalty-splash" class="hidden absolute inset-0 bg-red-950/70 backdrop-blur-xs flex flex-col items-center justify-center pointer-events-none transition-all">
+                        <span class="text-4xl">⚠️</span>
+                        <h4 class="text-2xl font-black text-red-400 uppercase tracking-widest mt-1">CLEAR COAT SCRATCHED!</h4>
+                        <p class="text-xs text-red-200 mt-1">Wrong tool sequence! -£15 penalty applied.</p>
+                    </div>
+
+                    <!-- Overlay Screen (Start / Game Over) -->
+                    <div id="game-overlay" class="absolute inset-0 bg-audsleyBlack/90 backdrop-blur-sm flex flex-col items-center justify-center p-6 text-center z-10">
+                        <div class="max-w-md">
+                            <div class="w-20 h-20 rounded-full border-4 border-audsleyGreen mx-auto mb-4 overflow-hidden shadow-[0_0_20px_rgba(0,214,95,0.4)]">
+                                <img src="source/dan-16-bit.jpeg" alt="Dan" class="w-full h-full object-cover">
+                            </div>
+                            <h3 id="overlay-title" class="text-3xl font-black text-white uppercase tracking-wider mb-2">
+                                Ready To Detail?
+                            </h3>
+                            <p id="overlay-desc" class="text-sm text-gray-300 mb-6">
+                                The clients are lined up down the street. Tap the correct detailing tools in order to complete packages and bank the biggest profit before the 60s timer expires!
+                            </p>
+                            <button id="main-action-btn" class="bg-audsleyGreen text-audsleyBlack px-8 py-3 font-black text-base uppercase tracking-widest rounded-sm hover:bg-white hover:scale-105 transition-all shadow-[0_0_20px_rgba(0,214,95,0.6)] cursor-pointer">
+                                Open Bay (Start)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tool Rack -->
+                <div>
+                    <div class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2 flex justify-between items-center">
+                        <span>Dan's Mobile Tool Kit (Click tool to apply):</span>
+                        <span class="text-[11px] text-audsleyGreen font-normal hidden sm:inline">Shortcut: Keys 1 - 5</span>
+                    </div>
+                    <div class="grid grid-cols-2 sm:grid-cols-5 gap-3" id="tool-rack">
+                        
+                        <!-- Tool 1: Foam Cannon -->
+                        <button data-tool="foam" class="tool-btn bg-audsleyMidGray hover:bg-gray-800 border-2 border-gray-700 hover:border-audsleyGreen p-3 rounded text-center transition-all cursor-pointer group flex flex-col items-center">
+                            <div class="text-2xl mb-1 group-hover:scale-110 transition-transform">🧼</div>
+                            <div class="text-xs font-black uppercase text-white tracking-wider">Snow Foam</div>
+                            <div class="text-[10px] text-gray-400">Pre-wash Soak</div>
+                        </button>
+
+                        <!-- Tool 2: Wheel Brush -->
+                        <button data-tool="wheels" class="tool-btn bg-audsleyMidGray hover:bg-gray-800 border-2 border-gray-700 hover:border-audsleyGreen p-3 rounded text-center transition-all cursor-pointer group flex flex-col items-center">
+                            <div class="text-2xl mb-1 group-hover:scale-110 transition-transform">🛞</div>
+                            <div class="text-xs font-black uppercase text-white tracking-wider">Wheel Brush</div>
+                            <div class="text-[10px] text-gray-400">Brake Dust Removal</div>
+                        </button>
+
+                        <!-- Tool 3: Wash Mitt -->
+                        <button data-tool="wash" class="tool-btn bg-audsleyMidGray hover:bg-gray-800 border-2 border-gray-700 hover:border-audsleyGreen p-3 rounded text-center transition-all cursor-pointer group flex flex-col items-center">
+                            <div class="text-2xl mb-1 group-hover:scale-110 transition-transform">🧽</div>
+                            <div class="text-xs font-black uppercase text-white tracking-wider">Wash Mitt</div>
+                            <div class="text-[10px] text-gray-400">2-Bucket Contact</div>
+                        </button>
+
+                        <!-- Tool 4: Pressure Lance -->
+                        <button data-tool="rinse" class="tool-btn bg-audsleyMidGray hover:bg-gray-800 border-2 border-gray-700 hover:border-audsleyGreen p-3 rounded text-center transition-all cursor-pointer group flex flex-col items-center">
+                            <div class="text-2xl mb-1 group-hover:scale-110 transition-transform">💦</div>
+                            <div class="text-xs font-black uppercase text-white tracking-wider">Power Lance</div>
+                            <div class="text-[10px] text-gray-400">High Pressure Rinse</div>
+                        </button>
+
+                        <!-- Tool 5: Polisher -->
+                        <button data-tool="polish" class="tool-btn bg-audsleyMidGray hover:bg-gray-800 border-2 border-gray-700 hover:border-audsleyGreen p-3 rounded text-center transition-all cursor-pointer group flex flex-col items-center col-span-2 sm:col-span-1">
+                            <div class="text-2xl mb-1 group-hover:scale-110 transition-transform">✨</div>
+                            <div class="text-xs font-black uppercase text-white tracking-wider">DA Polisher</div>
+                            <div class="text-[10px] text-gray-400">Buff & Gloss</div>
+                        </button>
+
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -165,6 +302,12 @@
             <span class="text-audsleyBlack font-black uppercase tracking-widest text-lg">★★★★★ "Professional, on-time, and meticulous attention to detail."</span>
         </div>
     </div>
+    <style>
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+    </style>
 
     <!-- Footer -->
     <footer id="contact" class="bg-audsleyBlack pt-16 pb-8 border-t border-gray-800">
@@ -180,7 +323,7 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- Scripts: Fade Observer & Pit-Stop Valet Game Logic -->
     <script>
         // Scroll Animations
         document.addEventListener("DOMContentLoaded", function() {
@@ -197,169 +340,659 @@
             });
         });
 
-        // Game Logic
-        const canvas = document.getElementById('gameCanvas');
-        const ctx = canvas.getContext('2d');
-        const overlay = document.getElementById('game-overlay');
-        const startBtn = document.getElementById('start-btn');
-        
-        // Load Dan Sprite
-        const danSprite = new Image();
-        danSprite.src = 'source/dan-16-bit.jpeg'; 
-
-        let gameLoop;
-        let score = 0;
-        let isPlaying = false;
-        let missed = 0;
-
-        const player = {
-            x: 275,
-            y: 320,
-            width: 60, // Widened slightly to accommodate the jpeg background
-            height: 70,
-            speed: 6,
-            dx: 0
-        };
-
-        const cars = [];
-        const carWidth = 60;
-        const carHeight = 30;
-
-        function createCar() {
-            const x = Math.random() * (canvas.width - carWidth);
-            cars.push({ x: x, y: -30, speed: 2 + Math.random() * 2 });
-        }
-
-        function drawPlayer() {
-            if (danSprite.complete && danSprite.naturalHeight !== 0) {
-                ctx.drawImage(danSprite, player.x, player.y, player.width, player.height);
-            } else {
-                // Fallback drawing if image isn't loaded yet
-                ctx.fillStyle = '#00d65f';
-                ctx.fillRect(player.x, player.y, player.width, player.height);
-                ctx.fillStyle = '#000';
-                ctx.font = '14px Arial';
-                ctx.fillText('DAN', player.x + 10, player.y + 40);
+        // -------------------------------------------------------------
+        // AUDIO SYNTHESIS ENGINE (Web Audio API - No MP3s required)
+        // -------------------------------------------------------------
+        let audioCtx = null;
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
             }
         }
 
-        function drawCars() {
-            ctx.fillStyle = '#8b4513'; // Dirty brown car color
-            cars.forEach(car => {
-                ctx.fillRect(car.x, car.y, carWidth, carHeight);
-                // Windows
-                ctx.fillStyle = '#add8e6';
-                ctx.fillRect(car.x + 10, car.y + 5, 15, 10);
-                ctx.fillRect(car.x + 35, car.y + 5, 15, 10);
-                ctx.fillStyle = '#8b4513';
+        function playSound(type) {
+            if (!audioCtx) return;
+            try {
+                const now = audioCtx.currentTime;
+                if (type === 'spray') {
+                    // White noise burst for foam/rinse
+                    const bufferSize = audioCtx.sampleRate * 0.25;
+                    const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+                    const data = buffer.getChannelData(0);
+                    for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+                    const noise = audioCtx.createBufferSource();
+                    noise.buffer = buffer;
+                    const filter = audioCtx.createBiquadFilter();
+                    filter.type = 'bandpass';
+                    filter.frequency.setValueAtTime(1200, now);
+                    const gain = audioCtx.createGain();
+                    gain.gain.setValueAtTime(0.2, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.24);
+                    noise.connect(filter);
+                    filter.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    noise.start();
+                } else if (type === 'brush') {
+                    // Low rumble scrub
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(140, now);
+                    osc.frequency.exponentialRampToValueAtTime(70, now + 0.2);
+                    gain.gain.setValueAtTime(0.25, now);
+                    gain.gain.linearRampToValueAtTime(0.01, now + 0.2);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start();
+                    osc.stop(now + 0.2);
+                } else if (type === 'polish') {
+                    // High oscillating motor pitch
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(320, now);
+                    osc.frequency.linearRampToValueAtTime(540, now + 0.25);
+                    gain.gain.setValueAtTime(0.12, now);
+                    gain.gain.linearRampToValueAtTime(0.01, now + 0.25);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start();
+                    osc.stop(now + 0.25);
+                } else if (type === 'success') {
+                    // Bright ascending arcade chime
+                    [523.25, 659.25, 783.99, 1046.50].forEach((freq, idx) => {
+                        const osc = audioCtx.createOscillator();
+                        const gain = audioCtx.createGain();
+                        osc.type = 'sine';
+                        osc.frequency.setValueAtTime(freq, now + idx * 0.06);
+                        gain.gain.setValueAtTime(0.15, now + idx * 0.06);
+                        gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.06 + 0.18);
+                        osc.connect(gain);
+                        gain.connect(audioCtx.destination);
+                        osc.start(now + idx * 0.06);
+                        osc.stop(now + idx * 0.06 + 0.18);
+                    });
+                } else if (type === 'error') {
+                    // Low harsh buzzer
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(110, now);
+                    osc.frequency.linearRampToValueAtTime(90, now + 0.25);
+                    gain.gain.setValueAtTime(0.3, now);
+                    gain.gain.linearRampToValueAtTime(0.01, now + 0.25);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start();
+                    osc.stop(now + 0.25);
+                }
+            } catch(e) {}
+        }
+
+        // -------------------------------------------------------------
+        // PIT-STOP VALET ENGINE
+        // -------------------------------------------------------------
+        const canvas = document.getElementById('valetCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // UI references
+        const overlay = document.getElementById('game-overlay');
+        const overlayTitle = document.getElementById('overlay-title');
+        const overlayDesc = document.getElementById('overlay-desc');
+        const mainActionBtn = document.getElementById('main-action-btn');
+        const timerDisplay = document.getElementById('timer-display');
+        const scoreDisplay = document.getElementById('score-display');
+        const completedDisplay = document.getElementById('completed-display');
+        const packageTitle = document.getElementById('package-title');
+        const carDesc = document.getElementById('car-desc');
+        const stepsList = document.getElementById('steps-list');
+        const patienceBar = document.getElementById('patience-bar');
+        const patienceText = document.getElementById('patience-text');
+        const penaltySplash = document.getElementById('penalty-splash');
+        const danDialogue = document.getElementById('dan-dialogue');
+        const toolBtns = document.querySelectorAll('.tool-btn');
+
+        // Dan avatar image in canvas (Dan sprite card)
+        const danSprite = new Image();
+        danSprite.src = 'source/dan-16-bit.jpeg';
+
+        // Catalog of possible detailing packages
+        const PACKAGES = [
+            {
+                name: 'Express Clean',
+                steps: ['foam', 'rinse', 'wash'],
+                basePrice: 40,
+                maxPatience: 16
+            },
+            {
+                name: 'Wheel Master',
+                steps: ['wheels', 'rinse', 'wash'],
+                basePrice: 50,
+                maxPatience: 18
+            },
+            {
+                name: 'Safe Wash & Dry',
+                steps: ['foam', 'rinse', 'wash', 'rinse'],
+                basePrice: 65,
+                maxPatience: 20
+            },
+            {
+                name: 'Full Enhancement Detail',
+                steps: ['foam', 'wash', 'rinse', 'polish'],
+                basePrice: 90,
+                maxPatience: 22
+            }
+        ];
+
+        const TOOL_META = {
+            foam:   { label: 'Snow Foam',   icon: '🧼', color: '#60a5fa' },
+            wheels: { label: 'Wheel Brush', icon: '🛞', color: '#f59e0b' },
+            wash:   { label: 'Wash Mitt',   icon: '🧽', color: '#ec4899' },
+            rinse:  { label: 'Power Lance', icon: '💦', color: '#38bdf8' },
+            polish: { label: 'DA Polish',   icon: '✨', color: '#00d65f' }
+        };
+
+        const CAR_MODELS = [
+            { type: 'Coupe', scaleX: 1.0, scaleY: 0.9, colors: ['#1e40af', '#b91c1c', '#15803d', '#334155'] },
+            { type: 'SUV', scaleX: 1.15, scaleY: 1.15, colors: ['#0f172a', '#78716c', '#047857', '#475569'] },
+            { type: 'Hot Hatch', scaleX: 0.85, scaleY: 0.95, colors: ['#ea580c', '#eab308', '#0284c7', '#dc2626'] }
+        ];
+
+        const DAN_QUOTES = [
+            "\"Keep the two-bucket method clean!\"",
+            "\"Watch those lower sills for road tar!\"",
+            "\"Rinse off that heavy grit before contact!\"",
+            "\"Look at that mirror gloss coming through!\"",
+            "\"Customer is waiting on the driveway!\""
+            "\"Where d'ya get ya car?\""
+        ];
+
+        // State
+        let gameRunning = false;
+        let timeLeft = 60;
+        let score = 0;
+        let completedCars = 0;
+        let timerInterval = null;
+        let currentCar = null;
+        let activeParticles = [];
+
+        function getRandomElement(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        // Spawn a new car into the bay
+        function spawnCar() {
+            const model = getRandomElement(CAR_MODELS);
+            const pkg = getRandomElement(PACKAGES);
+            const carColor = getRandomElement(model.colors);
+
+            currentCar = {
+                modelType: model.type,
+                color: carColor,
+                scaleX: model.scaleX,
+                scaleY: model.scaleY,
+                package: pkg,
+                currentStepIdx: 0,
+                patience: pkg.maxPatience,
+                maxPatience: pkg.maxPatience,
+                dirtLevel: 1.0, // 1 = filthy, 0 = spotless mirror
+                foamLayer: 0.0,
+                wheelDirt: 1.0,
+                glossShine: 0.0,
+                xOffset: -500, // roll-in animation
+                targetX: 470
+            };
+
+            // Update UI
+            packageTitle.textContent = pkg.name;
+            carDesc.textContent = `(${model.type} • Paint Cleanse)`;
+            danDialogue.textContent = getRandomElement(DAN_QUOTES);
+            renderStepPills();
+        }
+
+        function renderStepPills() {
+            stepsList.innerHTML = '';
+            if (!currentCar) return;
+
+            currentCar.package.steps.forEach((stepKey, idx) => {
+                const meta = TOOL_META[stepKey];
+                const pill = document.createElement('div');
+                pill.className = `flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-bold uppercase tracking-wider border transition-all ${
+                    idx < currentCar.currentStepIdx
+                        ? 'bg-audsleyGreen/20 border-audsleyGreen text-audsleyGreen line-through opacity-50'
+                        : idx === currentCar.currentStepIdx
+                        ? 'bg-white text-audsleyBlack border-white ring-2 ring-audsleyGreen scale-105'
+                        : 'bg-black/40 border-gray-700 text-gray-400'
+                }`;
+                pill.innerHTML = `<span>${meta.icon}</span><span>${meta.label}</span>`;
+                stepsList.appendChild(pill);
             });
         }
 
-        function drawUI() {
-            ctx.fillStyle = 'white';
-            ctx.font = 'bold 20px Courier New';
-            ctx.fillText(`Cleaned: ${score}`, 10, 30);
-            ctx.fillStyle = 'red';
-            ctx.fillText(`Missed: ${missed}/3`, 10, 60);
-        }
+        function applyTool(toolKey) {
+            if (!gameRunning || !currentCar) return;
 
-        function update() {
-            // Move player
-            player.x += player.dx;
-            if (player.x < 0) player.x = 0;
-            if (player.x + player.width > canvas.width) player.x = canvas.width - player.width;
+            initAudio();
+            const requiredStep = currentCar.package.steps[currentCar.currentStepIdx];
 
-            // Move cars and detect collision
-            for (let i = 0; i < cars.length; i++) {
-                cars[i].y += cars[i].speed;
+            if (toolKey === requiredStep) {
+                // Correct step executed!
+                currentCar.currentStepIdx++;
 
-                // Collision with player (Cleaned)
-                if (cars[i].y + carHeight > player.y &&
-                    cars[i].x < player.x + player.width &&
-                    cars[i].x + carWidth > player.x) {
-                    cars.splice(i, 1);
-                    score++;
-                    i--;
-                    continue;
+                // Visual effects depending on step
+                if (toolKey === 'foam') {
+                    currentCar.foamLayer = 1.0;
+                    playSound('spray');
+                    emitParticles('white', 45);
+                } else if (toolKey === 'rinse') {
+                    currentCar.foamLayer = 0.0;
+                    currentCar.dirtLevel = Math.max(0, currentCar.dirtLevel - 0.4);
+                    currentCar.wheelDirt = Math.max(0, currentCar.wheelDirt - 0.5);
+                    playSound('spray');
+                    emitParticles('#38bdf8', 55);
+                } else if (toolKey === 'wheels') {
+                    currentCar.wheelDirt = 0.0;
+                    playSound('brush');
+                    emitParticles('#94a3b8', 35);
+                } else if (toolKey === 'wash') {
+                    currentCar.dirtLevel = Math.max(0, currentCar.dirtLevel - 0.5);
+                    playSound('brush');
+                    emitParticles('#ec4899', 30);
+                } else if (toolKey === 'polish') {
+                    currentCar.glossShine = 1.0;
+                    currentCar.dirtLevel = 0.0;
+                    playSound('polish');
+                    emitParticles('#00d65f', 60);
                 }
 
-                // Car hits bottom (Missed)
-                if (cars[i].y > canvas.height) {
-                    cars.splice(i, 1);
-                    missed++;
-                    i--;
-                    if (missed >= 3) {
-                        gameOver();
+                // Check if car finished
+                if (currentCar.currentStepIdx >= currentCar.package.steps.length) {
+                    finishCarSuccess();
+                } else {
+                    renderStepPills();
+                }
+
+            } else {
+                // Misclick / Paint Damage Penalty!
+                playSound('error');
+                showPenalty();
+                score = Math.max(0, score - 15);
+                currentCar.patience = Math.max(1, currentCar.patience - 3.5);
+                scoreDisplay.textContent = `£${score}`;
+                danDialogue.textContent = `"Careful! You can't use that on this step!"`;
+            }
+        }
+
+        function finishCarSuccess() {
+            playSound('success');
+            // Calculate payout + patience bonus tip
+            const speedRatio = currentCar.patience / currentCar.maxPatience;
+            const tipBonus = Math.round(currentCar.package.basePrice * speedRatio * 0.5);
+            const payout = currentCar.package.basePrice + tipBonus;
+
+            score += payout;
+            completedCars++;
+
+            scoreDisplay.textContent = `£${score}`;
+            completedDisplay.textContent = completedCars;
+            danDialogue.textContent = `"Flawless finish! +£${payout} in the till."`;
+
+            emitParticles('#00d65f', 80, true);
+
+            // Car drives out
+            currentCar.targetX = 1200;
+            setTimeout(() => {
+                if (gameRunning) spawnCar();
+            }, 600);
+        }
+
+        function showPenalty() {
+            penaltySplash.classList.remove('hidden');
+            const cabinet = document.getElementById('game-cabinet');
+            cabinet.classList.add('shake');
+            setTimeout(() => {
+                penaltySplash.classList.add('hidden');
+                cabinet.classList.remove('shake');
+            }, 500);
+        }
+
+        // Particle system for splash, foam, polish sparks
+        function emitParticles(color, count, sparkle = false) {
+            for (let i = 0; i < count; i++) {
+                activeParticles.push({
+                    x: (currentCar ? currentCar.xOffset : 470) + (Math.random() * 260 - 130),
+                    y: 190 + (Math.random() * 80 - 40),
+                    vx: (Math.random() - 0.5) * 6,
+                    vy: (Math.random() - 0.8) * 5,
+                    color: color,
+                    size: sparkle ? Math.random() * 5 + 3 : Math.random() * 4 + 2,
+                    alpha: 1.0,
+                    life: Math.random() * 20 + 20
+                });
+            }
+        }
+
+        // -------------------------------------------------------------
+        // CANVAS RENDERING (Procedural Bay, Dan, & Cars)
+        // -------------------------------------------------------------
+        function drawCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // 1. Draw Workshop Bay floor & grid
+            ctx.fillStyle = '#171717';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Tiled detailing garage floor
+            ctx.strokeStyle = '#222222';
+            ctx.lineWidth = 1;
+            for (let x = 0; x < canvas.width; x += 40) {
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, canvas.height);
+                ctx.stroke();
+            }
+            for (let y = 0; y < canvas.height; y += 40) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(canvas.width, y);
+                ctx.stroke();
+            }
+
+            // High-lux detailing bay LED overhead ceiling lights
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
+            ctx.fillRect(80, 0, 740, 24);
+            ctx.fillStyle = '#00d65f';
+            ctx.fillRect(200, 10, 500, 3);
+
+            // 2. Dan's Tech Station (Left side of bay)
+            ctx.fillStyle = '#262626';
+            ctx.fillRect(30, 80, 110, 190);
+            ctx.strokeStyle = '#383838';
+            ctx.lineWidth = 2;
+            ctx.strokeRect(30, 80, 110, 190);
+
+            // Draw Dan sprite in station booth
+            if (danSprite.complete && danSprite.naturalHeight !== 0) {
+                ctx.drawImage(danSprite, 40, 90, 90, 110);
+            } else {
+                ctx.fillStyle = '#00d65f';
+                ctx.fillRect(40, 90, 90, 110);
+            }
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 12px "Courier New", monospace';
+            ctx.textAlign = 'center';
+            ctx.fillText('DAN (PRO)', 85, 225);
+            ctx.fillStyle = '#00d65f';
+            ctx.fillText('BAY 01', 85, 245);
+
+            // 3. Draw Vehicle in the Bay
+            if (currentCar) {
+                // Smooth interpolation for car rolling in / out
+                currentCar.xOffset += (currentCar.targetX - currentCar.xOffset) * 0.12;
+
+                ctx.save();
+                ctx.translate(currentCar.xOffset, 185);
+
+                const cx = 0;
+                const cy = 0;
+                const sx = currentCar.scaleX;
+                const sy = currentCar.scaleY;
+
+                // Ground shadow
+                ctx.fillStyle = 'rgba(0,0,0,0.5)';
+                ctx.beginPath();
+                ctx.ellipse(cx, cy + 52 * sy, 190 * sx, 20 * sy, 0, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Wheels (Brake dust & alloys)
+                const wheelPositions = [-115 * sx, 115 * sx];
+                wheelPositions.forEach(wx => {
+                    // Outer tyre
+                    ctx.fillStyle = '#1c1917';
+                    ctx.beginPath();
+                    ctx.arc(wx, cy + 42 * sy, 28 * sy, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    // Alloy Rim
+                    ctx.fillStyle = currentCar.wheelDirt > 0.4 ? '#475569' : '#e2e8f0';
+                    ctx.beginPath();
+                    ctx.arc(wx, cy + 42 * sy, 18 * sy, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    // Brake disc & caliper (Audsley Green calipers!)
+                    ctx.fillStyle = '#00d65f';
+                    ctx.fillRect(wx - 8, cy + 30 * sy, 16, 6);
+
+                    // Brake Dust Dirt Layer overlay
+                    if (currentCar.wheelDirt > 0.1) {
+                        ctx.fillStyle = `rgba(120, 53, 15, ${currentCar.wheelDirt * 0.7})`;
+                        ctx.beginPath();
+                        ctx.arc(wx, cy + 42 * sy, 18 * sy, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                });
+
+                // Car Chassis / Bodywork
+                ctx.fillStyle = currentCar.color;
+                ctx.beginPath();
+                ctx.moveTo(-160 * sx, cy + 35 * sy);
+                ctx.lineTo(-170 * sx, cy + 10 * sy);
+                ctx.lineTo(-120 * sx, cy - 5 * sy);
+                ctx.lineTo(-65 * sx, cy - 42 * sy);
+                ctx.lineTo(45 * sx, cy - 42 * sy);
+                ctx.lineTo(125 * sx, cy - 5 * sy);
+                ctx.lineTo(170 * sx, cy + 12 * sy);
+                ctx.lineTo(165 * sx, cy + 35 * sy);
+                ctx.closePath();
+                ctx.fill();
+
+                // Windshield & Windows
+                ctx.fillStyle = '#0f172a';
+                ctx.beginPath();
+                ctx.moveTo(-58 * sx, cy - 38 * sy);
+                ctx.lineTo(-110 * sx, cy - 5 * sy);
+                ctx.lineTo(110 * sx, cy - 5 * sy);
+                ctx.lineTo(38 * sx, cy - 38 * sy);
+                ctx.closePath();
+                ctx.fill();
+
+                // Tint reflection
+                ctx.fillStyle = 'rgba(255,255,255,0.2)';
+                ctx.beginPath();
+                ctx.moveTo(-45 * sx, cy - 36 * sy);
+                ctx.lineTo(-90 * sx, cy - 8 * sy);
+                ctx.lineTo(-70 * sx, cy - 8 * sy);
+                ctx.lineTo(-30 * sx, cy - 36 * sy);
+                ctx.closePath();
+                ctx.fill();
+
+                // Headlights & Taillights
+                ctx.fillStyle = '#ef4444'; // Tail
+                ctx.fillRect(-170 * sx, cy + 12 * sy, 8 * sx, 10 * sy);
+                ctx.fillStyle = '#38bdf8'; // Xenon front
+                ctx.fillRect(162 * sx, cy + 14 * sy, 8 * sx, 10 * sy);
+
+                // DIRT OVERLAY LAYER (Scrubbed away by washing)
+                if (currentCar.dirtLevel > 0.05) {
+                    ctx.fillStyle = `rgba(113, 63, 18, ${currentCar.dirtLevel * 0.75})`;
+                    ctx.beginPath();
+                    ctx.moveTo(-160 * sx, cy + 35 * sy);
+                    ctx.lineTo(-170 * sx, cy + 10 * sy);
+                    ctx.lineTo(-120 * sx, cy - 5 * sy);
+                    ctx.lineTo(-65 * sx, cy - 42 * sy);
+                    ctx.lineTo(45 * sx, cy - 42 * sy);
+                    ctx.lineTo(125 * sx, cy - 5 * sy);
+                    ctx.lineTo(170 * sx, cy + 12 * sy);
+                    ctx.lineTo(165 * sx, cy + 35 * sy);
+                    ctx.closePath();
+                    ctx.fill();
+
+                    // Grime splatter spots
+                    ctx.fillStyle = `rgba(67, 36, 10, ${currentCar.dirtLevel * 0.9})`;
+                    ctx.beginPath();
+                    ctx.arc(-80 * sx, cy + 15 * sy, 14 * sy, 0, Math.PI * 2);
+                    ctx.arc(40 * sx, cy + 20 * sy, 18 * sy, 0, Math.PI * 2);
+                    ctx.arc(100 * sx, cy + 10 * sy, 12 * sy, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                // FOAM LAYER (When snow foam lance is applied)
+                if (currentCar.foamLayer > 0.05) {
+                    ctx.fillStyle = `rgba(255, 255, 255, ${currentCar.foamLayer * 0.85})`;
+                    ctx.beginPath();
+                    ctx.moveTo(-162 * sx, cy + 36 * sy);
+                    ctx.lineTo(-172 * sx, cy + 8 * sy);
+                    ctx.lineTo(-122 * sx, cy - 7 * sy);
+                    ctx.lineTo(-67 * sx, cy - 44 * sy);
+                    ctx.lineTo(47 * sx, cy - 44 * sy);
+                    ctx.lineTo(127 * sx, cy - 7 * sy);
+                    ctx.lineTo(172 * sx, cy + 10 * sy);
+                    ctx.lineTo(167 * sx, cy + 36 * sy);
+                    ctx.closePath();
+                    ctx.fill();
+                }
+
+                // MIRROR GLOSS HIGHLIGHT (After DA Polisher)
+                if (currentCar.glossShine > 0.5) {
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.7)';
+                    ctx.lineWidth = 3;
+                    ctx.beginPath();
+                    ctx.moveTo(-150 * sx, cy + 8 * sy);
+                    ctx.lineTo(-110 * sx, cy - 8 * sy);
+                    ctx.lineTo(110 * sx, cy - 8 * sy);
+                    ctx.lineTo(160 * sx, cy + 10 * sy);
+                    ctx.stroke();
+
+                    // Sparkle stars
+                    ctx.fillStyle = '#ffffff';
+                    ctx.fillText('✦', -60 * sx, cy - 15 * sy);
+                    ctx.fillText('✦', 70 * sx, cy);
+                }
+
+                ctx.restore();
+            }
+
+            // 4. Update & Draw Particles (Water droplets, suds, polish sparks)
+            for (let i = activeParticles.length - 1; i >= 0; i--) {
+                const p = activeParticles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+                p.alpha -= 0.03;
+                p.life--;
+
+                ctx.fillStyle = p.color;
+                ctx.globalAlpha = Math.max(0, p.alpha);
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.globalAlpha = 1.0;
+
+                if (p.life <= 0 || p.alpha <= 0) {
+                    activeParticles.splice(i, 1);
+                }
+            }
+
+            requestAnimationFrame(drawCanvas);
+        }
+
+        // -------------------------------------------------------------
+        // GAME LIFECYCLE & TIMERS
+        // -------------------------------------------------------------
+        function startGame() {
+            initAudio();
+            gameRunning = true;
+            timeLeft = 60;
+            score = 0;
+            completedCars = 0;
+
+            timerDisplay.textContent = `${timeLeft}s`;
+            scoreDisplay.textContent = `£${score}`;
+            completedDisplay.textContent = completedCars;
+
+            overlay.classList.add('hidden');
+            document.getElementById('game-cabinet').classList.add('active-bay');
+
+            spawnCar();
+
+            clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                if (!gameRunning) return;
+
+                // Decrement round timer
+                timeLeft--;
+                timerDisplay.textContent = `${timeLeft}s`;
+
+                // Decay customer patience
+                if (currentCar) {
+                    currentCar.patience -= 0.5;
+                    const pct = Math.max(0, Math.round((currentCar.patience / currentCar.maxPatience) * 100));
+                    patienceBar.style.width = `${pct}%`;
+                    patienceText.textContent = `${pct}%`;
+
+                    if (pct < 25) {
+                        patienceBar.className = 'h-full bg-red-500 transition-all duration-100';
+                    } else if (pct < 55) {
+                        patienceBar.className = 'h-full bg-amber-400 transition-all duration-100';
+                    } else {
+                        patienceBar.className = 'h-full bg-audsleyGreen transition-all duration-100';
+                    }
+
+                    // Customer walk-out!
+                    if (currentCar.patience <= 0) {
+                        playSound('error');
+                        danDialogue.textContent = `"Customer walked out! Lost payment!"`;
+                        currentCar.targetX = 1200;
+                        setTimeout(() => {
+                            if (gameRunning) spawnCar();
+                        }, 500);
                     }
                 }
-            }
 
-            // Spawn new cars
-            if (Math.random() < 0.02 + (score * 0.001)) { // Gets slightly faster
-                createCar();
-            }
+                // Game Over Check
+                if (timeLeft <= 0) {
+                    endGame();
+                }
+            }, 1000);
         }
 
-        function clear() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-        }
+        function endGame() {
+            gameRunning = false;
+            clearInterval(timerInterval);
+            document.getElementById('game-cabinet').classList.remove('active-bay');
 
-        function loop() {
-            if (!isPlaying) return;
-            clear();
-            drawPlayer();
-            drawCars();
-            drawUI();
-            update();
-            gameLoop = requestAnimationFrame(loop);
-        }
-
-        function gameOver() {
-            isPlaying = false;
-            overlay.style.display = 'flex';
-            overlay.innerHTML = `
-                <h3 class="text-4xl text-red-500 font-black uppercase tracking-widest mb-4">Washout!</h3>
-                <p class="text-white mb-2 pixel-font">Cars Cleaned: ${score}</p>
-                <button onclick="resetGame()" class="mt-6 bg-audsleyGreen text-audsleyBlack px-6 py-3 font-bold uppercase tracking-widest rounded-sm hover:bg-white transition-colors">Try Again</button>
+            overlayTitle.textContent = "Shift Over!";
+            overlayDesc.innerHTML = `
+                Great job in the detailing bay!<br>
+                Cars Finished: <strong class="text-audsleyGreen">${completedCars}</strong><br>
+                Total Revenue: <strong class="text-audsleyGreen">£${score}</strong>
             `;
+            mainActionBtn.textContent = "Play Again";
+            overlay.classList.remove('hidden');
         }
 
-        function resetGame() {
-            score = 0;
-            missed = 0;
-            cars.length = 0;
-            player.x = 270;
-            overlay.style.display = 'none';
-            isPlaying = true;
-            loop();
-        }
-
-        startBtn.addEventListener('click', resetGame);
-
-        // Keyboard Controls
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') player.dx = -player.speed;
-            if (e.key === 'ArrowRight') player.dx = player.speed;
-        });
-        document.addEventListener('keyup', (e) => {
-            if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') player.dx = 0;
+        // Attach Tool Button listeners
+        toolBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tool = btn.getAttribute('data-tool');
+                applyTool(tool);
+            });
         });
 
-        // Mobile Controls
-        const btnLeft = document.getElementById('btn-left');
-        const btnRight = document.getElementById('btn-right');
-        
-        btnLeft.addEventListener('touchstart', (e) => { e.preventDefault(); player.dx = -player.speed; });
-        btnLeft.addEventListener('touchend', (e) => { e.preventDefault(); player.dx = 0; });
-        btnLeft.addEventListener('mousedown', () => player.dx = -player.speed);
-        btnLeft.addEventListener('mouseup', () => player.dx = 0);
-        btnLeft.addEventListener('mouseleave', () => player.dx = 0);
+        // Keyboard Shortcuts (1-5 for tools)
+        window.addEventListener('keydown', (e) => {
+            if (!gameRunning) return;
+            if (e.key === '1') applyTool('foam');
+            if (e.key === '2') applyTool('wheels');
+            if (e.key === '3') applyTool('wash');
+            if (e.key === '4') applyTool('rinse');
+            if (e.key === '5') applyTool('polish');
+        });
 
-        btnRight.addEventListener('touchstart', (e) => { e.preventDefault(); player.dx = player.speed; });
-        btnRight.addEventListener('touchend', (e) => { e.preventDefault(); player.dx = 0; });
-        btnRight.addEventListener('mousedown', () => player.dx = player.speed);
-        btnRight.addEventListener('mouseup', () => player.dx = 0);
-        btnRight.addEventListener('mouseleave', () => player.dx = 0);
+        mainActionBtn.addEventListener('click', startGame);
+
+        // Start render loop
+        requestAnimationFrame(drawCanvas);
     </script>
+
 </body>
 </html>
